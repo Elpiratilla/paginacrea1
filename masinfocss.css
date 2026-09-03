@@ -146,23 +146,46 @@
     padding:0 30px;
 }
 
-.card{
-    background:#23334f;
+/* tarjeta que se voltea al pasar el mouse */
+.card-flip{
+    perspective:1200px;
+    height:260px;
+}
+
+.card-flip-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .6s;
+    transform-style:preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    inset:0;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
     border-radius:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     padding:35px 25px;
     text-align:center;
-    transition:.35s;
+}
+
+.card-front{
+    background:#13233d;
     border:1px solid rgba(255,255,255,.08);
     box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    background:#2c4675;
-}
-
-/* circulo de fondo detras del icono, en vez de icono suelto */
-.card .icono{
+.card-front .icono{
     width:80px;
     height:80px;
     display:flex;
@@ -170,24 +193,29 @@
     justify-content:center;
     background:rgba(77,166,255,.12);
     border-radius:50%;
-    margin:0 auto 20px;
+    margin-bottom:20px;
 }
 
-.card i{
+.card-front i{
     font-size:32px;
     color:#4da6ff;
-    margin-bottom:0;
 }
 
-.card h3{
-    margin-bottom:15px;
+.card-front h3{
     font-size:24px;
+    color:white;
 }
 
-.card p{
+.card-back{
+    background:#4d7ef2;
+    color:white;
+    transform:rotateY(180deg);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.card-back p{
     font-size:16px;
     line-height:1.7;
-
 }
 
 .estadisticas{
@@ -227,6 +255,7 @@
     font-size:16px;
     line-height:1.6;
 }
+
 .estrellas{
     position:fixed;
     top:0;
@@ -446,6 +475,10 @@ CTA FINAL
     font-size:58px;
     color:white;
     margin-bottom:20px;
+    background:linear-gradient(90deg,#ffffff,#a9c9ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .hero-texto p{
@@ -467,3 +500,32 @@ CTA FINAL
     position:relative;
 }
 
+/*====================================
+BOTON "VER MAS"
+====================================*/
+
+.btn-vermas{
+    margin-top:20px;
+    background:transparent;
+    border:2px solid #3b82f6;
+    color:#7cb0ff;
+    padding:10px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-vermas:hover{
+    background:#3b82f6;
+    color:white;
+    transform:translateY(-3px);
+}
+
+.btn-vermas i{
+    transition:transform .3s;
+}

@@ -43,7 +43,7 @@
                 <i class="fas fa-envelope"></i>
                 Contacto
             </a>
-            <a href="Login.php">
+            <a href="Login.html">
                 <i class="fas fa-keyboard"></i>
                 Teclado
             </a>
@@ -53,7 +53,9 @@
         <!-- HERO -->
         <section class="hero">
             <div class="hero-texto">
-                <span class="hero-tag">Accesibilidad e inclusión</span>
+            <span class="hero-tag">
+                <i class="fas fa-hands"></i> Accesibilidad e inclusión
+            </span>
                 <h1>Aprende más sobre el Sistema Braille</h1>
                 <p>
                     Descubre la importancia del Braille y cómo este sistema ha
@@ -114,6 +116,30 @@
                         accesibilidad y promover la igualdad de oportunidades
                         para todas las personas.
                     </p>
+                    <!-- vermas.js le agrega/saca la clase "expandido" a este div
+                    cuando se le da click al boton de abajo -->
+                    <div class="contenido-expandible" id="texto-dondeuso">
+                        <p>
+                            El Braille está presente en muchos lugares donde
+                            quizás no lo notás: en la señalización de
+                            ascensores y baños públicos, en los billetes de
+                            banco, en los empaques de medicamentos, en libros
+                            y menús de restaurantes, y en teclados y
+                            dispositivos electrónicos adaptados.
+                        </p>
+                        <br>
+                        <p>
+                            También se usa en el transporte público, en
+                            museos y espacios culturales, y cada vez más en
+                            productos de uso cotidiano, gracias a la
+                            concientización sobre accesibilidad.
+                        </p>
+                    </div>
+                    <!-- data-target tiene que matchear el id del div de arriba -->
+                    <button class="btn-vermas" data-target="texto-dondeuso">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
                 <div class="imagen">
                     <img src="manoleyendo.jpg" alt="Manos leyendo un texto en Braille">
@@ -122,36 +148,102 @@
         </section>
 
         <!-- ACTIVIDADES -->
-        <section class="cards fade-in" id="actividades">
-            <div class="card">
-                <div class="icono-circulo">
-                    <i class="fas fa-school"></i>
+        <section class="cards" id="actividades">
+            <div class="card fade-in card-1">
+                <div class="card-flip-inner">
+                    <div class="card-cara card-frente">
+                        <div class="icono-circulo">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>Talleres</h3>
+                    </div>
+                    <div class="card-cara card-dorso">
+                        <p>
+                            Actividades educativas donde las personas aprenden cómo
+                            funciona el sistema Braille.
+                        </p>
+                    </div>
                 </div>
-                <h3>Talleres</h3>
-                <p>
-                    Actividades educativas donde las personas aprenden cómo
-                    funciona el sistema Braille.
-                </p>
             </div>
-            <div class="card">
-                <div class="icono-circulo">
-                    <i class="fas fa-hand-paper"></i>
+            <div class="card fade-in card-2">
+                <div class="card-flip-inner">
+                    <div class="card-cara card-frente">
+                        <div class="icono-circulo">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <h3>Experiencias táctiles</h3>
+                    </div>
+                    <div class="card-cara card-dorso">
+                        <p>
+                            Demostraciones para leer palabras utilizando únicamente el
+                            sentido del tacto.
+                        </p>
+                    </div>
                 </div>
-                <h3>Experiencias táctiles</h3>
-                <p>
-                    Demostraciones para leer palabras utilizando únicamente el
-                    sentido del tacto.
-                </p>
             </div>
-            <div class="card">
-                <div class="icono-circulo">
-                    <i class="fas fa-keyboard"></i>
+            <div class="card fade-in card-3">
+                <div class="card-flip-inner">
+                    <div class="card-cara card-frente">
+                        <div class="icono-circulo">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3>Tecnología</h3>
+                    </div>
+                    <div class="card-cara card-dorso">
+                        <p>
+                            Presentación de teclados y dispositivos que
+                            utilizan el sistema Braille.
+                        </p>
+                    </div>
                 </div>
-                <h3>Tecnología</h3>
-                <p>
-                    Presentación de teclados y dispositivos que
-                    utilizan el sistema Braille.
-                </p>
+            </div>
+            <div class="card fade-in card-4">
+                <div class="card-flip-inner">
+                    <div class="card-cara card-frente">
+                        <div class="icono-circulo">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Recursos digitales</h3>
+                    </div>
+                    <div class="card-cara card-dorso">
+                        <p>
+                            Guías, videos y ejercicios interactivos para practicar
+                            Braille a tu propio ritmo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card fade-in card-5">
+                <div class="card-flip-inner">
+                    <div class="card-cara card-frente">
+                        <div class="icono-circulo">
+                            <i class="fas fa-people-group"></i>
+                        </div>
+                        <h3>Comunidad</h3>
+                    </div>
+                    <div class="card-cara card-dorso">
+                        <p>
+                            Espacios de encuentro entre personas videntes y no
+                            videntes para compartir experiencias.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card fade-in card-6">
+                <div class="card-flip-inner">
+                    <div class="card-cara card-frente">
+                        <div class="icono-circulo">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Certificación</h3>
+                    </div>
+                    <div class="card-cara card-dorso">
+                        <p>
+                            Reconocimiento para quienes completan los talleres y
+                            demuestran manejo del sistema Braille.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -190,6 +282,37 @@
                 <div class="beneficio">
                     <i class="fas fa-check-circle"></i>
                     <p>Fortalece el respeto hacia las personas con discapacidad visual.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO EMPEZAR: pasos numerados para guiar al visitante -->
+        <section class="pasos fade-in">
+            <h2 class="titulo">Cómo empezar a aprender</h2>
+            <div class="pasos-grid">
+                <div class="paso">
+                    <div class="paso-numero">1</div>
+                    <h3>Explorá</h3>
+                    <p>
+                        Conocé el alfabeto y la lógica de la celda de seis
+                        puntos desde nuestra sección interactiva.
+                    </p>
+                </div>
+                <div class="paso">
+                    <div class="paso-numero">2</div>
+                    <h3>Practicá</h3>
+                    <p>
+                        Sumate a un taller o probá el teclado Braille para
+                        experimentar la lectura táctil en primera persona.
+                    </p>
+                </div>
+                <div class="paso">
+                    <div class="paso-numero">3</div>
+                    <h3>Compartí</h3>
+                    <p>
+                        Difundí lo aprendido y ayudá a construir espacios
+                        más accesibles para todos.
+                    </p>
                 </div>
             </div>
         </section>

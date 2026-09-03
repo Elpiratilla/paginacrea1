@@ -536,3 +536,288 @@ RESPONSIVE
     }
 
 }
+
+/*====================================
+CARDS: grid parejo + entrada animada escalonada
+====================================*/
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.card{
+    width:auto;
+}
+
+/* cada card usa la misma animacion fade-in de tu JS (IntersectionObserver),
+   pero con un pequeño delay creciente para que entren una por una */
+.card.fade-in{
+    transition:opacity .6s ease, transform .6s ease;
+}
+
+.card-1{ transition-delay:0s; }
+.card-2{ transition-delay:.1s; }
+.card-3{ transition-delay:.2s; }
+.card-4{ transition-delay:.3s; }
+.card-5{ transition-delay:.4s; }
+.card-6{ transition-delay:.5s; }
+
+/* el icono hace un pequeño "pop" cuando el mouse pasa por la card */
+.card .icono-circulo{
+    transition:transform .35s ease, background .35s ease;
+}
+
+.card:hover .icono-circulo{
+    transform:scale(1.12) rotate(-6deg);
+    background:rgba(59,130,246,.3);
+}
+
+
+/*====================================
+HERO INSIGNIA: dato flotante sobre la imagen
+====================================*/
+
+.hero-imagen{
+    position:relative;
+}
+
+.hero-insignia{
+    position:absolute;
+    bottom:-1rem;
+    right:-1rem;
+    background:#3b82f6;
+    color:#fff;
+    padding:.9rem 1.2rem;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+    max-width:220px;
+}
+
+.hero-insignia i{
+    font-size:1.5rem;
+}
+
+.hero-insignia strong{
+    display:block;
+    font-size:1rem;
+    line-height:1.2;
+}
+
+.hero-insignia span{
+    font-size:.8rem;
+    opacity:.9;
+}
+
+
+/*====================================
+PASOS: "Cómo empezar"
+====================================*/
+
+.pasos{
+    padding:80px 10%;
+}
+
+.pasos .titulo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.pasos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:30px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.paso{
+    background:#0d1d31;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    transition:.3s;
+}
+
+.paso:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(59,130,246,.3);
+}
+
+.paso-numero{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:rgba(59,130,246,.15);
+    color:#8ec4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    margin:0 auto 18px;
+    transition:.3s;
+}
+
+.paso:hover .paso-numero{
+    background:#3b82f6;
+    color:#fff;
+}
+
+.paso h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.paso p{
+    color:#ddd;
+    font-size:15px;
+}
+
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero-insignia{
+        position:static;
+        margin-top:20px;
+    }
+
+}
+
+
+/*====================================
+CARDS: animacion de flip (se dan vuelta al pasar el mouse)
+====================================*/
+
+.card{
+    background:transparent;
+    box-shadow:none;
+    padding:0;
+    height:270px;
+    perspective:1200px;
+}
+
+.card:hover{
+    transform:none;
+}
+
+.card-flip-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .7s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+}
+
+.card:hover .card-flip-inner{
+    transform:rotateY(180deg);
+}
+
+.card-cara{
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    border-radius:20px;
+    padding:35px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.card-frente{
+    background:#0d1d31;
+}
+
+.card-dorso{
+    background:#3b82f6;
+    transform:rotateY(180deg);
+}
+
+.card-dorso p{
+    color:#fff;
+    font-size:15.5px;
+    line-height:1.6;
+}
+
+.card-frente h3{
+    font-size:24px;
+    margin-bottom:0;
+}
+
+
+/*====================================
+TEXTO EXPANDIBLE ("Ver más" con vermas.js)
+====================================*/
+
+.texto .contenido-expandible{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .45s ease, opacity .4s ease, margin-top .45s ease;
+}
+
+.texto .contenido-expandible p{
+    font-size:17px;
+    color:#f1f5f9;
+    text-align:justify;
+}
+
+.texto .contenido-expandible.expandido{
+    max-height:500px;
+    opacity:1;
+    margin-top:15px;
+}
+
+.btn-vermas{
+    margin-top:22px;
+    background:transparent;
+    border:2px solid #3b82f6;
+    color:#fff;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:500;
+    padding:11px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.btn-vermas:hover{
+    background:#3b82f6;
+    transform:translateY(-4px);
+}
+
+.btn-vermas i{
+    transition:transform .3s ease;
+}
+
+.btn-vermas.activo i,
+.contenido-expandible.expandido + .btn-vermas i{
+    transform:rotate(180deg);
+}
+
+
+@media(max-width:900px){
+
+    .card{
+        height:auto;
+        min-height:230px;
+    }
+
+}

@@ -28,10 +28,11 @@
         <a href="Mas info.html"><i class="fas fa-book-open"></i> Historia</a>
         <a href="proyecto.html"><i class="fas fa-diagram-project"></i> Sobre nosotros</a>
         <a href="contactos.html"><i class="fas fa-envelope"></i> Contacto</a>
-        <a href="Login.php"><i class="fas fa-keyboard"></i> Teclado Braille</a>
+        <a href="Login.html"><i class="fas fa-keyboard"></i> Teclado Braille</a>
     </nav>
 </header>
     <main>
+        
         <!-- HERO: pieza central de la home. A la izquierda titulo + CTA,
         a la derecha 4 celdas braille reales que se van iluminando y
         deletrean "HOLA" en loop (ver .celda-braille en css.css) -->
@@ -52,14 +53,63 @@
                         <a href="descubrebraile.html" class="btn">
                             Aprende Braille
                         </a>
-                        <a href="Login.php" class="btn btn-secundario">
+                        <a href="Login.html" class="btn btn-secundario">
                             Teclado Braille
                         </a>
                     </div>
                 </div>
+                
+                <!-- visual: cada celda representa una letra de "HOLA" en braille real -->
+                <div class="braille-hero-visual" aria-hidden="true">
+                    <div class="celdas-fila">
+                        <!-- H: puntos 1,2,5 -->
+                        <div class="celda-braille" style="--delay:0s">
+                            <span class="punto lleno" style="--delay:0s"></span>
+                            <span class="punto lleno" style="--delay:0s"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                            <span class="punto lleno" style="--delay:0s"></span>
+                            <span class="punto"></span>
+                        </div>
+                        <!-- O: puntos 1,3,5 -->
+                        <div class="celda-braille">
+                            <span class="punto lleno" style="--delay:.35s"></span>
+                            <span class="punto"></span>
+                            <span class="punto lleno" style="--delay:.35s"></span>
+                            <span class="punto"></span>
+                            <span class="punto lleno" style="--delay:.35s"></span>
+                            <span class="punto"></span>
+                        </div>
+                        <!-- L: puntos 1,2,3 -->
+                        <div class="celda-braille">
+                            <span class="punto lleno" style="--delay:.7s"></span>
+                            <span class="punto lleno" style="--delay:.7s"></span>
+                            <span class="punto lleno" style="--delay:.7s"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                        </div>
+                        <!-- A: punto 1 -->
+                        <div class="celda-braille">
+                            <span class="punto lleno" style="--delay:1.05s"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                            <span class="punto"></span>
+                        </div>
+                    </div>
+                    <span class="braille-caption">
+                        Así se escribe <strong>"HOLA"</strong> en Braille
+                    </span>
+                </div>
             </div>
+            <div class="scroll-cue">
+                <span></span>
+            </div>
+            
         </section>
-
+        
         <!-- INTRO: parrafo de presentacion + imagen + mini-stats + los 2 botones principales
         (Aprende Braille -> descubrebraile.html, Teclado Braille -> teclado.html) -->
         <section class="contenido">
