@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Limits</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="headerfooter.css">
+<link rel="stylesheet" href="newteclado.css">
+<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="comentarios.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- auth.js goes in the head and runs immediately: if there's no
+    active session, it redirects to login.html before the rest of
+    the page gets a chance to render -->
+<script src="auth.js"></script>
+<script>
+  protegerPagina();
+</script>
+</head>
+<body>
+
+  <!-- animated starry background, estrellas.js generates it inside this div -->
+  <div class="estrellas" id="estrellas"></div>
+
+  <!-- HEADER: logo + navigation menu, same on every page of the site -->
+  <header>
+    <div class="logo">
+      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <div>
+        <h1>No Limits</h1>
+      </div>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav>
+      <a href="home.html">
+        <i class="fas fa-house"></i>
+        Home
+      </a>
+      <a href="discover-braille.html">
+        <i class="fas fa-eye"></i>
+        Discover Braille
+      </a>
+      <a href="history.html">
+        <i class="fas fa-book-open"></i>
+        History
+      </a>
+      <a href="project.html">
+        <i class="fas fa-diagram-project"></i>
+        About Us
+      </a>
+      <a href="contact.html">
+        <i class="fas fa-envelope"></i>
+        Contact
+      </a>
+      <!-- class="activo" marks which page we're on (gives it the blue background) -->
+      <a href="keyboard.html" class="activo">
+        <i class="fas fa-keyboard"></i>
+        Keyboard
+      </a>
+    </nav>
+    <!-- auth.js fills this in with the greeting + log out button -->
+    <div id="authHeaderSlot"></div>
+  </header>
+
+  <!-- KEYBOARD: teclado.js builds each key inside #keyboard on the fly,
+      here in the HTML there's only the empty container -->
+  <div class="wrap">
+    <div class="stage">
+      <div id="kbcontainer" class="mode-wave">
+        <!-- canvas where the particles are drawn when a key is pressed -->
+        <canvas id="particles"></canvas>
+        <!-- teclado.js fills this in with the rows and keys -->
+        <div id="keyboard"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOG: shows each key that gets pressed, updated by teclado.js -->
+  <div class="logbar" id="logbar">
+    <span class="dim"></span>
+  </div>
+
+  <!-- PHRASE PANEL: where the Braille text is built, plus controls to edit or read it -->
+  <div class="phrase-panel">
+    <h2>Braille Phrase</h2>
+    <p class="sub">Type on your physical keyboard to build the phrase. Use the buttons to edit it or to hear it read aloud.</p>
+
+    <!-- teclado.js writes the text in here -->
+    <div class="phrase-out" id="phraseOut">&nbsp;</div>
+
+    <div class="phrase-btns">
+      <button class="btn" id="addBtn">+ Add space</button>
+      <button class="btn secondary" id="delBtn">Delete</button>
+      <button class="btn secondary" id="clrBtn">Clear</button>
+      <!-- <button class="btn read" id="readBtn">Read phrase</button> -->
+      <button class="btn contrast" id="contrastBtn">High contrast</button>
+    </div>
+
+    <!-- settings checkboxes -->
+    <div class="phrase-toggles">
+      <label class="chk">
+        <input type="checkbox" id="autoVoiceChk" checked>
+        Read each letter aloud as it's typed
+      </label>
+      <label class="chk">
+        <input type="checkbox" id="showLettersChk">
+        Show the letter below the symbol
+      </label>
+    </div>
+  </div>
+
+  <!-- COMMENTS SECTION: requires an account to comment -->
+  <div class="comentarios-panel">
+    <h2>Comments</h2>
+    <p class="sub">Tell us what you thought of the keyboard. You need an account to comment.</p>
+
+    <div class="comentarios-bloqueado" id="comentariosBloqueado" style="display:none;">
+      <i class="fas fa-lock"></i>
+      <span>You need to <a href="login-2.html">log in</a> or <a href="register.html">create an account</a> to leave a comment.</span>
+    </div>
+
+    <form class="form-comentario" id="formComentario" style="display:none;">
+      <textarea id="textoComentario" placeholder="Write your comment..." required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Comment</button>
+    </form>
+    <p class="preview-braille" id="previewBraille"></p>
+
+    <label class="comentarios-toggle">
+      <input type="checkbox" id="toggleTextoPlano">
+      Also show the plain text below each comment
+    </label>
+
+    <div class="lista-comentarios" id="listaComentarios"></div>
+  </div>
+
+  <!-- FOOTER: same on every page (Navigation / Resources / Follow Us + copyright) -->
+  <footer class="footer">
+    <div class="contenedor">
+      <div class="footer-row">
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="discover-braille.html">Discover Braille</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">What is Braille?</a></li>
+            <li><a href="#">Learn Braille</a></li>
+            <li><a href="#">Braille Alphabet</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-link">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        © 2026 No Limits
+      </div>
+    </div>
+  </footer>
+
+  <!-- teclado.js builds the keyboard and handles all the writing/voice/sound logic.
+estrellas.js just generates the background stars -->
+  <script src="teclado.js"></script>
+  <script src="estrellas.js"></script>
+  <script src="menu.js"></script>
+
+  <!-- comentario.js manages the comments section (requires a session) -->
+  <script src="comentario.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      try{
+        pintarUsuarioHeader();
+      }catch(err){
+        console.error("Error in pintarUsuarioHeader:", err);
+      }
+
+      try{
+        iniciarZonaComentarios("teclado");
+      }catch(err){
+        console.error("Error in iniciarZonaComentarios:", err);
+      }
+    });
+  </script>
+</body>
+</html>

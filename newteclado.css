@@ -1,0 +1,456 @@
+/*====================================
+ESTRELLAS DE FONDO (las genera estrellas.js, esto solo las estiliza)
+====================================*/
+.estrellas {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* para que no bloqueen los clicks de lo que esta encima */
+  z-index: -1; /* siempre atras de todo */
+}
+
+.estrella {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white; /* le da el brillito */
+  animation: caer linear infinite;
+}
+
+/* cada estrella cae de arriba hacia abajo y se desvanece al final */
+@keyframes caer {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* esto no se usa en teclado.html (no hay .hero ahí), quedó de una version anterior */
+.hero {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.hero-texto {
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.hero h1 i {
+  color: #3b82f6;
+}
+
+.hero p {
+  font-size: 19px;
+  color: #e5e7eb;
+}
+
+/*====================================
+VARIABLES DE COLOR (tema del teclado)
+====================================*/
+:root {
+  --bg-deep: #080a14;        /* fondo general de la pagina */
+  --bg-panel-solid: #12162a; /* fondo de los paneles (stats, frase, controles) */
+  --bg-key: #1a2036;         /* color base de las teclas */
+  --bg-key-top: #232a46;     /* color de arriba de las teclas (efecto degradado) */
+  --text-primary: #e9ebf7;
+  --text-dim: #8892b8;       /* texto secundario, mas apagado */
+  --accent: #7c6fff;         /* color principal (morado), se usa para resaltar */
+  --accent-soft: rgba(124, 111, 255, .35);
+  --glow: 0.7;                /* intensidad del brillo en el modo arcoiris/ola */
+  --wave-speed: 1.4s;         /* velocidad de la animacion del modo "ola" */
+  --border: #242c48;
+  --ok: #5be3a3;              /* verde, se usa en el log y el boton de contraste */
+}
+
+/* modo alto contraste: cuando el usuario le da click al boton "Alto contraste"
+   (js hace document.body.classList.toggle("high-contrast")), estas variables
+   pisan a las de arriba */
+body.high-contrast {
+  --bg-deep: #000000;
+  --bg-key: #000000;
+  --bg-key-top: #111111;
+  --text-primary: #ffffff;
+  --text-dim: #ffe98a;
+  --accent: #ffd500;
+  --accent-soft: rgba(255, 213, 0, .45);
+  --border: #ffd500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* el header ya se define en headerfooter.css, estaba repetido acá y
+   con otro formato, lo quité para que no queden dos fuentes de verdad */
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% -10%, #1c1440 0%, transparent 55%),
+    radial-gradient(circle at 90% 10%, #0e2440 0%, transparent 45%),
+    var(--bg-deep); /* 2 manchas de color + el fondo base, le da el efecto "nebulosa" */
+  color: white ;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+/* contenedor central de todo el contenido de la pagina (menos el header/footer) */
+.wrap{
+    width:90%;
+    max-width:1200px;
+    margin:0 auto;
+    padding-top: 28px; /* separacion respecto al header, que es sticky */
+}
+
+
+/* fila de estadisticas arriba del teclado (actualmente no se usa, el js
+   trae updateStats() vacia, pero se dejó el CSS por si se reactiva) */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0 20px;
+}
+
+.stat {
+  background: var(--bg-panel-solid);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 8px;
+  text-align: center;
+  box-shadow: 0 6px 18px -10px #000;
+}
+
+.stat b {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.stat span {
+  font-size: 10.5px;
+  color: var(--text-dim);
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+
+/*====================================
+TECLADO
+====================================*/
+
+/* perspective le da el efecto 3D a #kbcontainer (rotateX) */
+.stage {
+  perspective: 1400px;
+  margin-bottom: 18px;
+}
+
+/* la "caja" completa del teclado, inclinada con rotateX para que se vea en perspectiva */
+#kbcontainer {
+  position: relative;
+  background: linear-gradient(155deg, #161c33, #0d1122);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px 20px 26px;
+  transform: rotateX(8deg);
+  transform-origin: center bottom;
+  box-shadow: 0 30px 60px -25px #000, inset 0 1px 0 #2a3358;
+}
+
+/* el canvas donde teclado.js dibuja las particulas al presionar una tecla */
+#particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* cada fila de teclas (teclado.js arma una .kb-row por cada fila del array ROWS) */
+.kb-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.kb-row:last-child {
+  margin-bottom: 0;
+}
+
+/* estilo base de cada tecla individual */
+.key {
+  flex: 1 1 0; /* el ancho real lo define teclado.js con flexGrow segun el peso de cada tecla */
+  min-width: 0;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  background: linear-gradient(180deg, var(--bg-key-top), var(--bg-key));
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  box-shadow: 0 4px 0 0 #05070d, 0 6px 10px -4px #000; /* le da el efecto de tecla "flotando" */
+  transition: transform .06s ease, box-shadow .06s ease, background .18s ease, border-color .18s ease;
+  user-select: none;
+  position: relative;
+}
+
+/* el simbolo braille grande dentro de la tecla */
+.key .glyph {
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* la letra/numero chiquito debajo del simbolo, oculto por defecto */
+.key .capt {
+  display: none;
+  font-size: 8px;
+  color: var(--text-dim);
+  letter-spacing: .5px;
+}
+
+/* se muestra solo si el checkbox "Mostrar letra debajo del símbolo" está activado */
+#kbcontainer.show-letters .key .capt {
+  display: block;
+}
+
+/* como se ve la tecla mientras está presionada (teclado.js le agrega/saca esta clase) */
+.key.pressed {
+  transform: translateY(4px); /* efecto de "hundida" */
+  box-shadow: 0 0 0 0 #000, 0 2px 6px -2px #000;
+  background: var(--accent);
+  color: #0b0d18;
+  border-color: var(--accent);
+}
+
+.key.pressed .capt {
+  color: #0b0d18cc;
+}
+
+/* modo "estático": todas las teclas con el mismo brillo fijo */
+#kbcontainer.mode-static .key {
+  box-shadow: 0 4px 0 0 #05070d, 0 0 10px var(--accent-soft), 0 6px 10px -4px #000;
+  border-color: var(--accent-soft);
+}
+
+/* modo "arcoiris": cada tecla tiene un color de borde distinto segun su posicion (--i) */
+#kbcontainer.mode-rainbow .key {
+  border-color: hsl(calc(var(--i, 0) * 24), 85%, 60%);
+  box-shadow: 0 4px 0 0 #05070d, 0 0 calc(10px * var(--glow)) hsl(calc(var(--i, 0) * 24), 85%, 55%), 0 6px 10px -4px #000;
+}
+
+/* modo "ola": las teclas brillan en cadena, una despues de otra */
+#kbcontainer.mode-wave .key {
+  animation: waveGlow var(--wave-speed) ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.06s); /* cada tecla arranca un poquito despues que la anterior */
+}
+
+@keyframes waveGlow {
+  0%, 100% {
+    box-shadow: 0 4px 0 0 #05070d, 0 0 2px var(--accent-soft), 0 6px 10px -4px #000;
+  }
+  50% {
+    box-shadow: 0 4px 0 0 #05070d, 0 0 calc(18px * var(--glow)) var(--accent), 0 6px 10px -4px #000;
+    border-color: var(--accent);
+  }
+}
+
+/*====================================
+LOG DE TECLAS PRESIONADAS
+====================================*/
+/* la franja angosta debajo del teclado que va mostrando cada tecla presionada */
+.logbar {
+  display: none; /* se pidió sacar la barra verde del historial de teclas */
+  margin-top: 16px;
+  background: #05070f;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  overflow-x: auto; /* scroll horizontal cuando hay muchas teclas en el historial */
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--ok);
+  letter-spacing: 2px;
+}
+
+.logbar span.dim {
+  color: var(--text-dim);
+}
+
+/*====================================
+PANEL DE LA FRASE EN BRAILLE
+====================================*/
+.phrase-panel {
+  margin-top: 22px;
+  background: var(--bg-panel-solid);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.phrase-panel h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.phrase-panel p.sub {
+  color: var(--text-dim);
+  font-size: 12px;
+  margin: 0 0 16px;
+}
+
+/* donde se va mostrando la frase que el usuario va escribiendo */
+.phrase-out {
+  background: #05070f;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 24px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* fila de botones: Agregar espacio / Borrar / Limpiar / Leer frase / Alto contraste */
+.phrase-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* estilo base de todos los botones (despues cada variante cambia el color) */
+.btn {
+  border: none;
+  border-radius: 9px;
+  padding: 9px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0b0d18;
+  background: var(--accent);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, .35); /* le da el efecto de boton "3D" */
+  transition: transform .08s;
+}
+
+/* al hacer click se hunde, como una tecla mecanica */
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.btn.secondary {
+  background: #2a3252;
+  color: var(--text-primary);
+  box-shadow: 0 4px 0 0 #05070f;
+}
+
+.btn.contrast {
+  background: var(--ok);
+  box-shadow: 0 4px 0 0 #227a56;
+}
+
+.btn.read {
+  background: #3fb5e8;
+  box-shadow: 0 4px 0 0 #1c6f8f;
+}
+
+/* los dos checkbox de abajo: leer cada letra / mostrar letra debajo del simbolo */
+.phrase-toggles {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.chk {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.chk input {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+/*====================================
+PANEL DE CONTROLES (select/color/range - no se usa en el HTML actual,
+se dejó el CSS por si se agregan controles de configuracion despues)
+====================================*/
+.controls {
+  margin-top: 22px;
+  background: var(--bg-panel-solid);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px 22px;
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.ctrl {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 120px;
+}
+
+.ctrl label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+select, input[type="color"] {
+  background: #0d1120;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 7px 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+input[type="color"] {
+  padding: 2px;
+  height: 34px;
+  width: 56px;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+  width: 130px;
+}

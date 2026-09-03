@@ -1,0 +1,223 @@
+/* ============================================
+   comentarios.css — zona de comentarios
+   ============================================ */
+
+.comentarios-panel{
+    width:90%;
+    max-width:900px;
+    margin:60px auto;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:35px;
+}
+
+.comentarios-panel h2{
+    font-size:26px;
+    margin-bottom:6px;
+}
+
+.comentarios-panel .sub{
+    color:#bfc9d8;
+    font-size:14px;
+    margin-bottom:26px;
+}
+
+.comentarios-bloqueado{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:rgba(59,130,246,.1);
+    border:1px solid rgba(59,130,246,.3);
+    padding:16px 20px;
+    border-radius:12px;
+    margin-bottom:26px;
+}
+
+.comentarios-bloqueado i{
+    font-size:22px;
+    color:#4da6ff;
+    flex-shrink:0;
+}
+
+.comentarios-bloqueado a{
+    color:#4da6ff;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.comentarios-bloqueado a:hover{
+    text-decoration:underline;
+}
+
+.comentarios-toggle{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+    font-size:14px;
+    color:#bfc9d8;
+    cursor:pointer;
+    user-select:none;
+}
+
+.comentarios-toggle input{
+    accent-color:#3b82f6;
+    width:16px;
+    height:16px;
+    cursor:pointer;
+}
+
+.preview-braille{
+    min-height:20px;
+    margin-top:-6px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:20px;
+    letter-spacing:3px;
+    color:#4da6ff;
+    word-break:break-all;
+}
+
+.form-comentario{
+    display:flex;
+    gap:14px;
+    margin-bottom:8px;
+    align-items:flex-start;
+}
+
+.form-comentario textarea{
+    flex:1;
+    min-height:70px;
+    resize:vertical;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+    color:white;
+    font-family:inherit;
+    font-size:15px;
+    outline:none;
+    transition:.25s;
+}
+
+.form-comentario textarea:focus{
+    border-color:#3b82f6;
+    background:rgba(255,255,255,.08);
+}
+
+.form-comentario button{
+    padding:14px 22px;
+    border:none;
+    border-radius:12px;
+    background:#3b82f6;
+    color:white;
+    font-family:inherit;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.form-comentario button:hover{
+    background:#2563eb;
+    transform:translateY(-3px);
+}
+
+.lista-comentarios{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.sin-comentarios{
+    color:#8ea3c7;
+    font-size:14px;
+    text-align:center;
+    padding:20px 0;
+}
+
+.comentario{
+    display:flex;
+    gap:14px;
+    padding:16px;
+    background:rgba(255,255,255,.03);
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.comentario-avatar{
+    font-size:34px;
+    color:#3b82f6;
+    flex-shrink:0;
+}
+
+.comentario-cabecera{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+}
+
+.comentario-autor{
+    font-weight:600;
+    color:white;
+}
+
+.comentario-fecha{
+    font-size:12px;
+    color:#8ea3c7;
+}
+
+.comentario-braille{
+    font-family:"JetBrains Mono", monospace;
+    font-size:24px;
+    letter-spacing:4px;
+    line-height:1.7;
+    color:white;
+    word-break:break-all;
+    margin-bottom:4px;
+}
+
+.comentario-texto-plano{
+    display:none;
+    color:#8ea3c7;
+    font-size:14px;
+    font-style:italic;
+    line-height:1.5;
+    margin-bottom:10px;
+}
+
+.comentario-texto-plano.visible{
+    display:block;
+}
+
+.comentario-leer{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    border:1px solid rgba(59,130,246,.4);
+    border-radius:20px;
+    background:rgba(59,130,246,.1);
+    color:#4da6ff;
+    font-family:inherit;
+    font-size:13px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.comentario-leer:hover{
+    background:#3b82f6;
+    color:white;
+}
+
+@media (max-width:600px){
+    .form-comentario{
+        flex-direction:column;
+    }
+    .form-comentario button{
+        width:100%;
+    }
+}

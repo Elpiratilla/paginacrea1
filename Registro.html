@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear cuenta — Sin Límites</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="headerfooter.css">
+<link rel="stylesheet" href="auth.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <a href="Inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+
+    <div class="auth-logo">
+      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <h1>Sin Límites</h1>
+      <span>Aprendé y practicá Braille</span>
+    </div>
+
+    <h2>Crear cuenta</h2>
+    <p class="auth-sub">Registrate para usar el teclado y dejar comentarios.</p>
+
+    <div class="auth-error" id="regError"></div>
+    <div class="auth-success" id="regSuccess"></div>
+
+    <form class="auth-form" id="regForm">
+      <div class="auth-field">
+        <label for="regNombre">Nombre</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="regNombre" placeholder="Tu nombre" required>
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label for="regEmail">Correo electrónico</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="regEmail" placeholder="tu@correo.com" required>
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label for="regPassword">Contraseña</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="regPassword" placeholder="Mínimo 6 caracteres" required>
+          <button type="button" class="toggle-pass" data-target="regPassword"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label for="regPassword2">Confirmar contraseña</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="regPassword2" placeholder="Repetí la contraseña" required>
+          <button type="button" class="toggle-pass" data-target="regPassword2"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+
+      <button type="submit" class="auth-submit">Crear cuenta</button>
+    </form>
+
+    <p class="auth-switch">¿Ya tenés cuenta? <a href="login.html">Iniciá sesión</a></p>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+<script>
+  if(usuarioActual()){
+    window.location.href = "teclado.html";
+  }
+
+  document.querySelectorAll(".toggle-pass").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const input = document.getElementById(btn.dataset.target);
+      const icon = btn.querySelector("i");
+      const esPassword = input.type === "password";
+      input.type = esPassword ? "text" : "password";
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+    });
+  });
+
+  const regForm = document.getElementById("regForm");
+  const regError = document.getElementById("regError");
+  const regSuccess = document.getElementById("regSuccess");
+
+  regForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+    regError.classList.remove("activo");
+    regSuccess.classList.remove("activo");
+
+    const nombre = document.getElementById("regNombre").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPassword").value;
+    const password2 = document.getElementById("regPassword2").value;
+
+    if(password !== password2){
+      regError.textContent = "Las contraseñas no coinciden.";
+      regError.classList.add("activo");
+      return;
+    }
+
+    const resultado = await registrarUsuario(nombre, email, password);
+
+    if(!resultado.ok){
+      regError.textContent = resultado.error;
+      regError.classList.add("activo");
+      return;
+    }
+
+    regSuccess.textContent = "Cuenta creada. Ya podés iniciar sesión.";
+    regSuccess.classList.add("activo");
+    regForm.reset();
+
+    setTimeout(function(){
+      window.location.href = "login.html";
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>

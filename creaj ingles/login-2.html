@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — No Limits</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="headerfooter.css">
+<link rel="stylesheet" href="auth.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <a href="home.html" class="auth-back"><i class="fas fa-arrow-left"></i> Back to home</a>
+
+    <div class="auth-logo">
+      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <h1>No Limits</h1>
+      <span>Learn and practice Braille</span>
+    </div>
+
+    <h2>Log In</h2>
+    <p class="auth-sub">Sign in to your account to access the keyboard and comment.</p>
+
+    <div class="auth-error" id="loginError"></div>
+
+    <form class="auth-form" id="loginForm">
+      <div class="auth-field">
+        <label for="loginEmail">Email</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" placeholder="you@email.com" required>
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label for="loginPassword">Password</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+          <button type="button" class="toggle-pass" data-target="loginPassword"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+
+      <button type="submit" class="auth-submit">Log In</button>
+    </form>
+
+    <p class="auth-switch">Don't have an account? <a href="register.html">Sign up here</a></p>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+<script>
+  // if a session is already active, there's no point showing the login form
+  if(usuarioActual()){
+    window.location.href = "keyboard.html";
+  }
+
+  document.querySelectorAll(".toggle-pass").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const input = document.getElementById(btn.dataset.target);
+      const icon = btn.querySelector("i");
+      const esPassword = input.type === "password";
+      input.type = esPassword ? "text" : "password";
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+    });
+  });
+
+  const loginForm = document.getElementById("loginForm");
+  const loginError = document.getElementById("loginError");
+
+  loginForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+    loginError.classList.remove("activo");
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const resultado = await iniciarSesion(email, password);
+
+    if(!resultado.ok){
+      loginError.textContent = resultado.error;
+      loginError.classList.add("activo");
+      return;
+    }
+
+    const destino = sessionStorage.getItem("sinlimites_redirect") || "keyboard.html";
+    sessionStorage.removeItem("sinlimites_redirect");
+    window.location.href = destino;
+  });
+</script>
+
+</body>
+</html>

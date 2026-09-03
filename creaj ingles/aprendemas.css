@@ -1,0 +1,538 @@
+/*====================================
+RESET
+====================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    font-weight:500;
+    background:#192335;
+    color:white;
+    overflow-x:hidden;
+    line-height:1.8;
+}
+
+
+/*====================================
+ESTRELLAS
+====================================*/
+
+.estrellas{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+
+.estrella{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 10px white;
+    animation:caer linear infinite;
+}
+
+
+@keyframes caer{
+
+    0%{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    90%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+}
+
+
+/*====================================
+HERO
+====================================*/
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    padding:80px 10%;
+}
+
+
+.hero-texto{
+    max-width:600px;
+}
+
+/* etiqueta chica arriba del h1 del hero */
+.hero-tag{
+    display:inline-block;
+    background:rgba(59,130,246,.15);
+    color:#8ec4ff;
+    padding:6px 16px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+    border:1px solid rgba(59,130,246,.3);
+}
+
+
+.hero-texto h1{
+    font-size:48px;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+
+.hero-texto p{
+    font-size:19px;
+    color:#e5e7eb;
+    text-align:justify;
+}
+
+
+.hero-imagen{
+    flex-shrink:0;
+}
+
+.hero-imagen img{
+    width:400px;
+    max-width:100%;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+
+/*====================================
+BOTONES
+====================================*/
+
+.hero-botones{
+    margin-top:35px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+
+.btn{
+    padding:13px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+
+.btn-principal{
+    background:#3b82f6;
+}
+
+
+.btn-secundario{
+    border:2px solid #3b82f6;
+}
+
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+
+/*====================================
+CONTENIDO
+====================================*/
+
+.contenido{
+    padding:80px 10%;
+    background:rgba(13,29,49,.8);
+}
+
+
+.fila{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+}
+
+
+.texto{
+    flex:1;
+}
+
+
+.texto h2{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+
+.texto p{
+    font-size:18px;
+    color:#f1f5f9;
+    text-align:justify;
+}
+
+
+.imagen{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.imagen img{
+    width:380px;
+    max-width:100%;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+
+/*====================================
+DATOS / ESTADISTICAS
+====================================*/
+
+.estadisticas{
+    padding:70px 10%;
+    background:#0d1d31;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:40px;
+    text-align:center;
+}
+
+.estadistica{
+    flex:1;
+    min-width:170px;
+}
+
+.estadistica i{
+    font-size:30px;
+    color:#3b82f6;
+    margin-bottom:14px;
+    display:block;
+}
+
+.estadistica h3{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.estadistica p{
+    color:#c9d3e0;
+    font-size:15px;
+}
+
+
+/*====================================
+ICONOS EN CIRCULO (cards y beneficios)
+====================================*/
+
+.icono-circulo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:rgba(59,130,246,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.card .icono-circulo{
+    margin:0 auto 20px;
+}
+
+.card .icono-circulo i{
+    margin-bottom:0;
+}
+
+
+/*====================================
+CARDS
+====================================*/
+
+.cards{
+    padding:80px 10%;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+.card{
+    background:#0d1d31;
+    width:320px;
+    padding:35px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    transition:.3s;
+}
+
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(59,130,246,.3);
+}
+
+
+.card i{
+    font-size:26px;
+    color:#3b82f6;
+    margin-bottom:20px;
+}
+
+
+.card h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+
+.card p{
+    color:#ddd;
+}
+
+
+/*====================================
+CITA
+====================================*/
+
+.cita{
+    padding:90px 15%;
+    text-align:center;
+}
+
+.cita i{
+    font-size:28px;
+    color:#3b82f6;
+    opacity:.6;
+    margin-bottom:20px;
+    display:block;
+}
+
+.cita blockquote{
+    font-size:26px;
+    font-style:italic;
+    max-width:800px;
+    margin:0 auto 20px;
+    line-height:1.5;
+    color:#f1f5f9;
+}
+
+.cita cite{
+    color:#8ea3c7;
+    font-size:15px;
+    font-style:normal;
+}
+
+
+/*====================================
+BENEFICIOS
+====================================*/
+
+.beneficios{
+    padding:80px 10%;
+    background:#0d1d31;
+}
+
+
+.titulo{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+
+.lista-beneficios{
+    max-width:950px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.lista-beneficios .beneficio:last-child{
+    grid-column:1 / -1;
+}
+
+
+.beneficio{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+    background:#192335;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.beneficio:hover{
+    transform:translateY(-4px);
+}
+
+
+.beneficio i{
+    color:#3b82f6;
+    font-size:22px;
+}
+
+
+.beneficio p{
+    font-size:17px;
+    color:#f1f5f9;
+}
+
+
+/*====================================
+CTA FINAL
+====================================*/
+
+.cta-final{
+    padding:90px 10%;
+    text-align:center;
+    background:linear-gradient(135deg, rgba(59,130,246,.15), rgba(13,29,49,.95));
+    border-top:1px solid rgba(59,130,246,.2);
+}
+
+.cta-final h2{
+    font-size:36px;
+    margin-bottom:16px;
+}
+
+.cta-final p{
+    color:#e5e7eb;
+    font-size:17px;
+    max-width:600px;
+    margin:0 auto 30px;
+}
+
+.cta-final .hero-botones{
+    justify-content:center;
+}
+
+
+/*====================================
+CONCLUSION
+====================================*/
+
+.conclusion{
+    text-align:center;
+    padding:90px 15%;
+}
+
+
+.conclusion h2{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+
+.conclusion p{
+    font-size:19px;
+    color:#e5e7eb;
+}
+
+
+/*====================================
+ANIMACION FADE-IN AL SCROLLEAR
+====================================*/
+
+.fade-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+    .fade-in{
+        transition:none;
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+/*====================================
+RESPONSIVE
+====================================*/
+
+@media(max-width:900px){
+
+    .hero,
+    .fila{
+        flex-direction:column;
+        text-align:center;
+    }
+
+
+    .hero-texto h1{
+        font-size:35px;
+    }
+
+
+    .hero-imagen img,
+    .imagen img{
+        width:90%;
+    }
+
+
+    .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+
+
+    .card{
+        width:90%;
+    }
+
+    .lista-beneficios{
+        grid-template-columns:1fr;
+    }
+
+    .estadisticas{
+        gap:30px;
+    }
+
+    .cita blockquote{
+        font-size:21px;
+    }
+
+}

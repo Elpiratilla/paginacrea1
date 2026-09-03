@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="headerfooter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:ital,opsz,wght@0,18..144,400;0,18..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="alfabeto.css">
+    <title>Braille Alphabet | No Limits</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">
+                <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="No Limits Logo">
+            </a>
+            <div class="logo-texto">
+                <h1>No Limits</h1>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="menu">
+            <a href="home.html">
+                <i class="fas fa-house"></i>
+                Home
+            </a>
+            <a href="discover-braille.html">
+                <i class="fas fa-eye"></i>
+                Discover Braille
+            </a>
+            <a href="history.html">
+                <i class="fas fa-book-open"></i>
+                History
+            </a>
+            <a href="project.html">
+                <i class="fas fa-diagram-project"></i>
+                About Us
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </a>
+            <a href="login-2.html">
+                <i class="fas fa-keyboard"></i>
+                Keyboard
+            </a>
+        </nav>
+    </header>
+
+    <div class="estrellas" id="estrellas"></div>
+
+    <main>
+        <section class="hero">
+            <span class="eyebrow">Tactile reading system</span>
+            <h1 class="titulo">Braille Alphabet</h1>
+        </section>
+
+        <section class="imagen">
+            <div class="imagen-marco">
+                <img src="image 5.png" alt="Complete Braille alphabet">
+            </div>
+        </section>
+
+        <section class="datos" aria-label="Braille system facts">
+            <div class="dato">
+                <span class="dato-num">6</span>
+                <span class="dato-label">dots per cell</span>
+            </div>
+            <div class="dato">
+                <span class="dato-num">2×3</span>
+                <span class="dato-label">columns and rows</span>
+            </div>
+            <div class="dato">
+                <span class="dato-num">64</span>
+                <span class="dato-label">possible combinations</span>
+            </div>
+        </section>
+
+        <section class="seccion-titulo">
+            <span class="eyebrow">Learn step by step</span>
+            <h2 class="titulo">How does it work?</h2>
+        </section>
+
+        <section class="contenido">
+            <div class="fila">
+                <div class="explicacion">
+                    <div class="contenido-expandible" id="texto-braille">
+                        <p>
+                            The Braille system is based on a cell made up of six raised dots arranged in two columns and three rows. Each dot has a specific position numbered from 1 to 6, which allows different combinations to be created. Depending on which dots are raised, letters, numbers, punctuation marks, and even musical symbols are represented. This structure makes the system very efficient, since just six dots can form dozens of distinct characters. In addition, Braille is read using the fingertips, which allows people with visual impairments to quickly recognize each symbol through touch. The simplicity of its design makes it easy to learn and write, whether by hand or with specialized devices such as Perkins machines or electronic Braille displays. Thanks to this structure, Braille adapts to different languages and needs, making it a universal tool for communication and access to information.
+                        </p>
+                    </div>
+
+                    <button class="btn-vermas" type="button" data-target="texto-braille">
+                        <span class="texto-boton">Read more</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+
+                <div class="posicion">
+                    <p>
+                        Each cell has 6 fixed positions. Tap the dots to build your own combination:
+                    </p>
+
+                    <div class="celda-braille" id="celdaBraille" aria-label="Interactive Braille cell">
+                        <button class="punto" type="button" data-punto="1" aria-label="Dot 1">1</button>
+                        <button class="punto" type="button" data-punto="4" aria-label="Dot 4">4</button>
+                        <button class="punto" type="button" data-punto="2" aria-label="Dot 2">2</button>
+                        <button class="punto" type="button" data-punto="5" aria-label="Dot 5">5</button>
+                        <button class="punto" type="button" data-punto="3" aria-label="Dot 3">3</button>
+                        <button class="punto" type="button" data-punto="6" aria-label="Dot 6">6</button>
+                    </div>
+
+                    <span class="celda-caption">Left: 1·2·3 — Right: 4·5·6</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="discover-braille.html">Discover Braille</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="project.html">Project</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">What is Braille?</a></li>
+                        <li><a href="#">Learn Braille</a></li>
+                        <li><a href="#">Braille Alphabet</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-link">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copy">
+                © 2026 No Limits
+            </div>
+        </div>
+    </footer>
+
+    <script src="estrellas.js"></script>
+    <script src="vermas.js"></script>
+    <script src="menu.js"></script>
+
+    <script>
+        document.querySelectorAll(".celda-braille .punto").forEach(function (punto) {
+            punto.addEventListener("click", function () {
+                punto.classList.toggle("activo");
+            });
+        });
+    </script>
+</body>
+</html>

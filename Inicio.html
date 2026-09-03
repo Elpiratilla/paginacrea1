@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Límites</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="headerfooter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- fondo de estrellitas animadas, ver estrellas.js -->
+    <div class="estrellas" id="estrellas"></div>
+    <!--------
+    Header (mismo header que el resto del sitio, ver headerfooter.css)
+    ----------->
+<header class="header">
+    <div class="logo">
+        <a href="Inicio.html"><img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites"></a>
+        <div class="logo-texto"><h1>Sin Límites</h1></div>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav class="menu">
+        <a href="Inicio.html" class="activo"><i class="fas fa-house"></i> Inicio</a>
+        <a href="descubrebraile.html"><i class="fas fa-eye"></i> Descubre el Braille</a>
+        <a href="Mas info.html"><i class="fas fa-book-open"></i> Historia</a>
+        <a href="proyecto.html"><i class="fas fa-diagram-project"></i> Sobre nosotros</a>
+        <a href="contactos.html"><i class="fas fa-envelope"></i> Contacto</a>
+        <a href="Login.php"><i class="fas fa-keyboard"></i> Teclado Braille</a>
+    </nav>
+</header>
+    <main>
+        <!-- HERO: pieza central de la home. A la izquierda titulo + CTA,
+        a la derecha 4 celdas braille reales que se van iluminando y
+        deletrean "HOLA" en loop (ver .celda-braille en css.css) -->
+        <section class="cabeza">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="hero-tag">
+                        <i class="fas fa-hands"></i>
+                        Accesibilidad e inclusión
+                    </span>
+                    <h1 class="titulo1">
+                        Aprende Braille y promueve la accesibilidad
+                    </h1>
+                    <p class="subtitulo">
+                        Descubre el sistema Braille, aprende su historia y practica de forma interactiva.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="descubrebraile.html" class="btn">
+                            Aprende Braille
+                        </a>
+                        <a href="Login.php" class="btn btn-secundario">
+                            Teclado Braille
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO: parrafo de presentacion + imagen + mini-stats + los 2 botones principales
+        (Aprende Braille -> descubrebraile.html, Teclado Braille -> teclado.html) -->
+        <section class="contenido">
+            <div class="fila">
+                <div class="texto1">
+                    <p class="parrafo1">
+                        El sistema Braille permite que las personas con discapacidad visual puedan leer y escribir mediante puntos en relieve.
+                    </p>
+                    <p class="parrafo1">
+                        Gracias al Braille, millones de personas pueden estudiar, trabajar y comunicarse de manera independiente.
+                    </p>
+                    <p class="parrafo1">
+                        En esta página encontrarás recursos, información, ejercicios y herramientas para aprender Braille de una manera sencilla.
+                    </p>
+                    <div class="mini-stats">
+                        <div class="mini-stat">
+                            <strong>200</strong>
+                            <span>años de historia</span>
+                        </div>
+                        <div class="mini-stat">
+                            <strong>100+</strong>
+                            <span>países lo utilizan</span>
+                        </div>
+                        <div class="mini-stat">
+                            <strong>Millones</strong>
+                            <span>de personas beneficiadas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="imagen1">
+                    <img src="image 3.png" alt="Sistema Braille">
+                </div>
+            </div>
+            <div class="botones">
+            </div>
+        </section>
+
+        <!-- "¿QUÉ ES EL SISTEMA BRAILLE?": imagen + texto expandible (usa vermas.js) -->
+        <section class="cabeza1">
+            <div class="titulo">
+                <h2 class="titulo">
+                    ¿Qué es el sistema Braille?
+                </h2>
+            </div>
+        </section>
+        <section class="contenido1">
+            <div class="fila">
+                <div class="imagen2">
+                    <img src="image 4.png" alt="Cómo funciona el Braille">
+                </div>
+                <div class="texto">
+                    <!-- vermas.js le agrega/saca la clase "expandido" a este div cuando
+                    se le da click al boton de abajo -->
+                    <div class="contenido-expandible" id="texto-quees">
+                        <p class="parrafo2">
+                            El Braille es un sistema de lectura y escritura táctil
+                            utilizado por personas con discapacidad visual.
+                            Fue creado por Louis Braille en el siglo XIX.
+                        </p>
+                        <br>
+                        <p class="parrafo2">
+                            Está formado por una celda de seis puntos en relieve.
+                            Dependiendo de qué puntos estén levantados,
+                            se representan letras, números,
+                            signos de puntuación y símbolos.
+                        </p>
+                        <br>
+                        <p class="parrafo2">
+                            Actualmente el Braille es utilizado en todo el mundo
+                            y permite que millones de personas puedan estudiar,
+                            trabajar y comunicarse de forma independiente.
+                        </p>
+                    </div>
+                    <!-- data-target tiene que matchear el id del div de arriba, asi
+                    vermas.js sabe cual bloque expandir con este boton -->
+                    <button class="btn-vermas" data-target="texto-quees">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LINEA DE TIEMPO: historia de Louis Braille, año por año.
+        se alternan .izquierda / .derecha para que quede en zigzag (ver css.css) -->
+        <section class="timeline">
+    <h2 class="titulo">
+        Historia del Sistema Braille
+    </h2>
+    <div class="timeline-container">
+        <div class="evento izquierda">
+            <div class="contenido-evento">
+                <h3>1809</h3>
+                <h4>Nacimiento</h4>
+                <p>
+                    Louis Braille nació el 4 de enero de 1809
+                    en Coupvray, Francia.
+                </p>
+            </div>
+        </div>
+        <div class="evento derecha">
+            <div class="contenido-evento">
+                <h3>1812</h3>
+                <h4>Accidente</h4>
+                <p>
+                    A los tres años sufrió un accidente en un ojo.
+                    La infección se extendió y perdió completamente
+                    la visión.
+                </p>
+            </div>
+        </div>
+        <div class="evento izquierda">
+            <div class="contenido-evento">
+                <h3>1821</h3>
+                <h4>Inspiración</h4>
+                <p>
+                    Charles Barbier presentó un sistema de escritura
+                    nocturna que inspiró a Louis Braille.
+                </p>
+            </div>
+        </div>
+        <div class="evento derecha">
+            <div class="contenido-evento">
+                <h3>1824</h3>
+                <h4>Creación</h4>
+                <p>
+                    Con solo 15 años creó el sistema Braille,
+                    utilizando una celda de seis puntos.
+                </p>
+            </div>
+        </div>
+        <div class="evento izquierda">
+            <div class="contenido-evento">
+                <h3>1829</h3>
+                <h4>Primer libro</h4>
+                <p>
+                    Publicó el primer libro explicando
+                    el funcionamiento del sistema Braille.
+                </p>
+            </div>
+        </div>
+        <div class="evento derecha">
+            <div class="contenido-evento">
+                <h3>1852</h3>
+                <h4>Fallecimiento</h4>
+                <p>
+                    Louis Braille falleció en París,
+                    pero su invento continuó expandiéndose
+                    por todo el mundo.
+                </p>
+            </div>
+        </div>
+        <div class="evento izquierda">
+            <div class="contenido-evento">
+                <h3>1952</h3>
+                <h4>Reconocimiento</h4>
+                <p>
+                    Sus restos fueron trasladados al Panteón
+                    de París como homenaje a su legado.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- TESTIMONIO: seccion nueva, corta el ritmo entre la timeline y el CTA final -->
+        <section class="testimonio">
+            <i class="fas fa-quote-left"></i>
+            <blockquote>
+                Descubrir el sistema Braille me abrió los ojos a un mundo de
+                independencia que no conocía. Hoy leo, estudio y trabajo sin
+                depender de nadie más.
+            </blockquote>
+            <cite>Testimonio de un usuario del sistema Braille</cite>
+        </section>
+        <section class="cta-final">
+            <h2>¿Querés ver el alfabeto en acción?</h2>
+            <p>
+                Ahora que conocés la historia del Braille, descubrí cómo se
+                forman las letras o conocé el proyecto del teclado que estamos
+                desarrollando.
+            </p>
+            <div class="cta-botones">
+                <a href="alfabeto.html" class="btn">
+                    <i class="fas fa-book"></i>
+                    Ver Alfabeto
+                </a>
+                <a href="proyecto.html" class="btn btn-secundario">
+                    <i class="fas fa-diagram-project"></i>
+                    Conocer el proyecto
+                </a>
+            </div>
+        </section>
+    </main>
+    <!--
+    Footer (igual en todas las paginas)
+    -->
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="Inicio.html">Inicio</a></li>
+                        <li><a href="descubrebraile.html">Descubre el Braille</a></li>
+                        <li><a href="Mas info.html">Historia</a></li>
+                        <li><a href="proyecto.html">Proyecto</a></li>
+                        <li><a href="contactos.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <!-- estos 4 links son placeholders (#), todavia no llevan a ningun lado -->
+                        <li><a href="#">¿Qué es el Braille?</a></li>
+                        <li><a href="#">Aprender Braille</a></li>
+                        <li><a href="#">Alfabeto Braille</a></li>
+                        <li><a href="#">Accesibilidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Síguenos</h4>
+                    <div class="social-link">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy">
+                © 2026 Sin Límites
+            </div>
+        </div>
+    </footer>
+    <!-- vermas.js: boton "ver mas/ver menos" de textos largos
+    estrellas.js: genera las estrellitas del fondo -->
+    <script src="vermas.js"></script>
+    <script src="estrellas.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

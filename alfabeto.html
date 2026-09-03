@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="headerfooter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:ital,opsz,wght@0,18..144,400;0,18..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="alfabeto.css">
+    <title>Alfabeto Braille | Sin Límites</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="Inicio.html">
+                <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites">
+            </a>
+            <div class="logo-texto">
+                <h1>Sin Límites</h1>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="menu">
+            <a href="Inicio.html">
+                <i class="fas fa-house"></i>
+                Inicio
+            </a>
+            <a href="descubrebraile.html">
+                <i class="fas fa-eye"></i>
+                Descubre el Braille
+            </a>
+            <a href="Mas info.html">
+                <i class="fas fa-book-open"></i>
+                Historia
+            </a>
+            <a href="proyecto.html">
+                <i class="fas fa-diagram-project"></i>
+                Sobre nosotros
+            </a>
+            <a href="contactos.html">
+                <i class="fas fa-envelope"></i>
+                Contacto
+            </a>
+            <a href="Login.php">
+                <i class="fas fa-keyboard"></i>
+                Teclado
+            </a>
+        </nav>
+    </header>
+
+    <div class="estrellas" id="estrellas"></div>
+
+    <main>
+        <section class="hero">
+            <span class="eyebrow">Sistema táctil de lectura</span>
+            <h1 class="titulo">Alfabeto en Braille</h1>
+        </section>
+
+        <section class="imagen">
+            <div class="imagen-marco">
+                <img src="image 5.png" alt="Alfabeto Braille completo">
+            </div>
+        </section>
+
+        <section class="datos" aria-label="Datos del sistema Braille">
+            <div class="dato">
+                <span class="dato-num">6</span>
+                <span class="dato-label">puntos por celda</span>
+            </div>
+            <div class="dato">
+                <span class="dato-num">2×3</span>
+                <span class="dato-label">columnas y filas</span>
+            </div>
+            <div class="dato">
+                <span class="dato-num">64</span>
+                <span class="dato-label">combinaciones posibles</span>
+            </div>
+        </section>
+
+        <section class="seccion-titulo">
+            <span class="eyebrow">Aprende paso a paso</span>
+            <h2 class="titulo">¿Cómo funciona?</h2>
+        </section>
+
+        <section class="contenido">
+            <div class="fila">
+                <div class="explicacion">
+                    <div class="contenido-expandible" id="texto-braille">
+                        <p>
+                            El sistema Braille funciona a partir de una celda formada por seis puntos en relieve organizados en dos columnas y tres filas. Cada punto tiene una posición específica numerada del 1 al 6, lo que permite crear diferentes combinaciones. Dependiendo de cuáles puntos estén levantados, se representan letras, números, signos de puntuación e incluso símbolos musicales. Esta estructura hace que el sistema sea muy eficiente, ya que con solo seis puntos se pueden formar decenas de caracteres distintos. Además, el Braille se lee utilizando las yemas de los dedos, lo que permite a las personas con discapacidad visual reconocer rápidamente cada símbolo mediante el tacto. La simplicidad de su diseño facilita el aprendizaje y la escritura, ya sea de forma manual o mediante dispositivos especializados como máquinas Perkins o líneas braille electrónicas. Gracias a esta organización, el Braille se adapta a distintos idiomas y necesidades, convirtiéndose en una herramienta universal para la comunicación y el acceso a la información.
+                        </p>
+                    </div>
+
+                    <button class="btn-vermas" type="button" data-target="texto-braille">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+
+                <div class="posicion">
+                    <p>
+                        Cada celda tiene 6 posiciones fijas. Toca los puntos para armar tu propia combinación:
+                    </p>
+
+                    <div class="celda-braille" id="celdaBraille" aria-label="Celda Braille interactiva">
+                        <button class="punto" type="button" data-punto="1" aria-label="Punto 1">1</button>
+                        <button class="punto" type="button" data-punto="4" aria-label="Punto 4">4</button>
+                        <button class="punto" type="button" data-punto="2" aria-label="Punto 2">2</button>
+                        <button class="punto" type="button" data-punto="5" aria-label="Punto 5">5</button>
+                        <button class="punto" type="button" data-punto="3" aria-label="Punto 3">3</button>
+                        <button class="punto" type="button" data-punto="6" aria-label="Punto 6">6</button>
+                    </div>
+
+                    <span class="celda-caption">Izquierda: 1·2·3 — Derecha: 4·5·6</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="Inicio.html">Inicio</a></li>
+                        <li><a href="descubrebraile.html">Descubre el Braille</a></li>
+                        <li><a href="Mas info.html">Historia</a></li>
+                        <li><a href="proyecto.html">Proyecto</a></li>
+                        <li><a href="contactos.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">¿Qué es el Braille?</a></li>
+                        <li><a href="#">Aprender Braille</a></li>
+                        <li><a href="#">Alfabeto Braille</a></li>
+                        <li><a href="#">Accesibilidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Síguenos</h4>
+                    <div class="social-link">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copy">
+                © 2026 Sin Límites
+            </div>
+        </div>
+    </footer>
+
+    <script src="estrellas.js"></script>
+    <script src="vermas.js"></script>
+    <script src="menu.js"></script>
+
+    <script>
+        document.querySelectorAll(".celda-braille .punto").forEach(function (punto) {
+            punto.addEventListener("click", function () {
+                punto.classList.toggle("activo");
+            });
+        });
+    </script>
+</body>
+</html>

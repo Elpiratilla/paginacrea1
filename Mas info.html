@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Límites | Historia del Braille</title>
+    <link rel="stylesheet" href="masinfocss.css">
+    <link rel="stylesheet" href="headerfooter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="estrellas" id="estrellas"></div>
+    <!-- header igual al resto del sitio -->
+    <header class="header">
+        <div class="logo">
+            <a href="Inicio.html">
+                <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites">
+            </a>
+            <div class="logo-texto">
+                <h1>Sin Límites</h1>
+            </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <a href="Inicio.html">
+                <i class="fas fa-house"></i>
+                Inicio
+            </a>
+            <a href="descubrebraile.html">
+                <i class="fas fa-eye"></i>
+                Descubre el Braille
+            </a>
+            <a href="Mas info.html" class="activo">
+                <i class="fas fa-book-open"></i>
+                Historia
+            </a>
+            <a href="proyecto.html">
+                <i class="fas fa-diagram-project"></i>
+                Sobre nosotros
+            </a>
+            <a href="contactos.html">
+                <i class="fas fa-envelope"></i>
+                Contacto
+            </a>
+            <a href="Login.php">
+                <i class="fas fa-keyboard"></i>
+                Teclado
+            </a>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-contenido">
+            <div class="hero-texto">
+                <span class="hero-tag">
+                    <i class="fas fa-landmark"></i>
+                    Un poco de historia
+                </span>
+                <h1>Historia del Sistema Braille</h1>
+                <p>
+                    Descubre cómo Louis Braille revolucionó la educación y la
+                    inclusión de millones de personas mediante un sistema de
+                    lectura y escritura táctil que continúa cambiando vidas
+                    alrededor del mundo.
+                </p>
+                <div class="hero-botones">
+                    <a href="#historia" class="btn btn-principal">
+                        <i class="fas fa-book-open"></i>
+                        Conocer historia
+                    </a>
+                    <a href="Inicio.html" class="btn btn-secundario">
+                        <i class="fas fa-house"></i>
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <!-- BIOGRAFIA: quien fue Louis Braille (texto expandible con vermas.js) -->
+        <section class="seccion-titulo" id="historia">
+            <h2>
+                Historia del Braille
+            </h2>
+        </section>
+        <section class="contenido">
+            <div class="fila">
+                <div class="texto">
+                    <div class="contenido-expandible" id="texto-historia">
+                        <p>
+                            Louis Braille nació en 1809 en Coupvray, Francia.
+                            Desde pequeño perdió la vista debido a un accidente,
+                            situación que lo inspiró a desarrollar un sistema que
+                            permitiera a las personas con discapacidad visual leer y
+                            escribir de manera independiente.
+                        </p>
+                        <br>
+                        <p>
+                            Con apenas quince años creó el sistema Braille,
+                            basado en una celda de seis puntos en relieve.
+                            Gracias a esta innovación, millones de personas
+                            alrededor del mundo han podido acceder a la educación,
+                            la cultura y la comunicación sin depender de otros.
+                        </p>
+                    </div>
+                    <button class="btn-vermas" data-target="texto-historia">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="imagen">
+                    <img src="image 6.png" alt="Louis Braille">
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO FUNCIONA: explicacion basica de la celda de 6 puntos -->
+        <section class="seccion-titulo">
+            <h2>
+                ¿Cómo funciona el Braille?
+            </h2>
+        </section>
+        <section class="contenido">
+            <div class="fila">
+                <div class="imagen">
+                    <img src="image 7.png" alt="Sistema Braille">
+                </div>
+                <div class="texto">
+                    <p>
+                        El sistema Braille utiliza una celda formada por
+                        seis puntos organizados en dos columnas de tres
+                        puntos cada una.
+                    </p>
+                    <br>
+                    <p>
+                        Dependiendo de qué puntos estén elevados,
+                        se representan letras, números,
+                        signos de puntuación, símbolos matemáticos
+                        e incluso partituras musicales.
+                    </p>
+                    <br>
+                    <p>
+                        La lectura se realiza utilizando el sentido
+                        del tacto, deslizando suavemente los dedos
+                        sobre cada celda.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DONDE SE USA: lista de lugares donde aparece el braille en la vida real -->
+        <section class="seccion-titulo">
+            <h2>
+                ¿Dónde se utiliza el Braille?
+            </h2>
+        </section>
+        <section class="contenido">
+            <div class="fila">
+                <div class="texto">
+                    <p>
+                        El sistema Braille forma parte de la vida cotidiana de millones
+                        de personas con discapacidad visual. Gracias a él, pueden acceder
+                        a información importante, estudiar, trabajar y desplazarse con
+                        mayor independencia.
+                    </p>
+                    <br>
+                    <ul class="lista">
+                        <li> Libros, revistas y bibliotecas.</li>
+                        <li> Escuelas, universidades y centros educativos.</li>
+                        <li> Envases y etiquetas de medicamentos.</li>
+                        <li> Hospitales y centros de salud.</li>
+                        <li> Estaciones de tren, metro y transporte público.</li>
+                        <li> Señales de habitaciones, ascensores y edificios.</li>
+                        <li>Cajeros automáticos y terminales de pago.</li>
+                        <li> Computadoras y dispositivos con línea Braille.</li>
+                        <li> Partituras musicales adaptadas.</li>
+                        <li> Material electoral y documentos oficiales.</li>
+                    </ul>
+                </div>
+                <div class="imagen">
+                    <img src="image 9.png" alt="Uso del sistema Braille">
+                </div>
+            </div>
+        </section>
+
+        <!-- DATOS CURIOSOS: 4 tarjetitas cortas, ahora con icono en circulo -->
+        <section class="seccion-titulo">
+            <h2>
+                Datos Curiosos
+            </h2>
+        </section>
+        <section class="cards">
+            <div class="card">
+                <div class="icono">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>
+                    Inventor
+                </h3>
+                <p>
+                    Louis Braille creó este sistema cuando tenía solamente
+                    15 años.
+                </p>
+            </div>
+            <div class="card">
+                <div class="icono">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3>
+                    Mundial
+                </h3>
+                <p>
+                    El Braille es utilizado en más de cien países alrededor
+                    del mundo.
+                </p>
+            </div>
+            <div class="card">
+                <div class="icono">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>
+                    Música
+                </h3>
+                <p>
+                    Existe un sistema Braille especial para leer y escribir
+                    partituras musicales.
+                </p>
+            </div>
+            <div class="card">
+                <div class="icono">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>
+                    Matemáticas
+                </h3>
+                <p>
+                    También permite representar operaciones matemáticas,
+                    fórmulas científicas y programación.
+                </p>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS: 4 bloques cortos (Educación/Autonomía/Inclusión/Trabajo) -->
+        <section class="seccion-titulo">
+            <h2>
+                Beneficios del Sistema Braille
+            </h2>
+        </section>
+        <section class="estadisticas">
+            <div class="estadistica">
+                <i class="fas fa-book-open"></i>
+                <h2>Educación</h2>
+                <p>
+                    Facilita el acceso al aprendizaje y al conocimiento.
+                </p>
+            </div>
+            <div class="estadistica">
+                <i class="fas fa-user-check"></i>
+                <h2>Autonomía</h2>
+                <p>
+                    Permite leer y escribir sin depender de otras personas.
+                </p>
+            </div>
+            <div class="estadistica">
+                <i class="fas fa-users"></i>
+                <h2>Inclusión</h2>
+                <p>
+                    Favorece la igualdad de oportunidades y la participación social.
+                </p>
+            </div>
+            <div class="estadistica">
+                <i class="fas fa-briefcase"></i>
+                <h2>Trabajo</h2>
+                <p>
+                    Mejora las oportunidades académicas y laborales.
+                </p>
+            </div>
+        </section>
+
+        <!-- TESTIMONIO: seccion nueva, le da calidez humana entre beneficios e importancia -->
+        <section class="testimonio">
+            <i class="fas fa-quote-left"></i>
+            <blockquote>
+                Conocer la historia de Louis Braille me hizo entender que una
+                sola idea, bien pensada, puede cambiarle la vida a millones
+                de personas.
+            </blockquote>
+            <cite>Testimonio de una estudiante de educación inclusiva</cite>
+        </section>
+
+        <!-- IMPORTANCIA DEL BRAILLE: otro texto expandible con lista adentro -->
+        <section class="seccion-titulo">
+            <h2>
+                Importancia del Braille
+            </h2>
+        </section>
+        <section class="contenido">
+            <div class="fila">
+                <div class="texto">
+                    <div class="contenido-expandible" id="texto-importancia">
+                        <p>
+                            El sistema Braille permite que millones de
+                            personas con discapacidad visual tengan acceso
+                            a la educación, la cultura y la información
+                            de forma independiente.
+                        </p>
+                        <br>
+                        <p>
+                            Gracias a este sistema es posible estudiar,
+                            trabajar, leer libros, utilizar tecnología
+                            y desenvolverse con mayor autonomía.
+                        </p>
+                        <ul class="lista">
+                            <li>Favorece la inclusión social.</li>
+                            <li>Facilita el acceso a la educación.</li>
+                            <li>Promueve la independencia.</li>
+                            <li>Mejora las oportunidades laborales.</li>
+                            <li>Permite acceder a libros y documentos.</li>
+                        </ul>
+                    </div>
+                    <button class="btn-vermas" data-target="texto-importancia">
+                        <span class="texto-boton">Ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="imagen">
+                    <img src="image 8.png" alt="Importancia del Braille">
+                </div>
+            </div>
+        </section>
+
+        <!-- CIERRE: 3 numeros grandes tipo "logros" -->
+        <section class="estadisticas">
+            <div class="estadistica">
+                <i class="fas fa-book-open"></i>
+                <h2>200+</h2>
+                <p>Libros disponibles en Braille.</p>
+            </div>
+            <div class="estadistica">
+                <i class="fas fa-globe"></i>
+                <h2>100+</h2>
+                <p>Países utilizan el sistema Braille.</p>
+            </div>
+            <div class="estadistica">
+                <i class="fas fa-users"></i>
+                <h2>Millones</h2>
+                <p>Personas se benefician del Braille.</p>
+            </div>
+        </section>
+
+        <!-- CTA FINAL: invita a seguir explorando el sitio antes del footer -->
+        <section class="cta-final">
+            <h2>¿Querés ver el alfabeto en acción?</h2>
+            <p>
+                Ahora que conocés la historia del Braille, descubre cómo se
+                forman las letras o conocé el teclado que estamos
+                desarrollando.
+            </p>
+            <div class="cta-botones">
+                <a href="alfabeto.html" class="btn">
+                    <i class="fas fa-book"></i>
+                    Ver Alfabeto
+                </a>
+                <a href="proyecto.html" class="btn btn-secundario">
+                    <i class="fas fa-diagram-project"></i>
+                    Conocer el proyecto
+                </a>
+            </div>
+        </section>
+    </main>
+    <!-- footer igual en todas las paginas -->
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="Inicio.html">Inicio</a></li>
+                        <li><a href="descubrebraile.html">Descubre el Braille</a></li>
+                        <li><a href="Mas info.html">Historia</a></li>
+                        <li><a href="proyecto.html">Proyecto</a></li>
+                        <li><a href="contactos.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">¿Qué es el Braille?</a></li>
+                        <li><a href="#">Aprender Braille</a></li>
+                        <li><a href="#">Alfabeto Braille</a></li>
+                        <li><a href="#">Accesibilidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Síguenos</h4>
+                    <div class="social-link">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy">
+                © 2026 Sin Límites
+            </div>
+        </div>
+    </footer>
+<script src="estrellas.js"></script>
+<script src="vermas.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

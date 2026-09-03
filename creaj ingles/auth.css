@@ -1,0 +1,257 @@
+/* ============================================
+   auth.css — login, registro y slot de usuario en el header
+   ============================================ */
+
+.auth-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(59,130,246,.15), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(59,130,246,.12), transparent 40%),
+        #192335;
+}
+
+.auth-card{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:40px 36px;
+    backdrop-filter:blur(10px);
+}
+
+.auth-card .auth-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    margin-bottom:28px;
+    text-align:center;
+}
+
+.auth-card .auth-logo img{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    border:2px solid white;
+}
+
+.auth-card .auth-logo h1{
+    font-size:22px;
+}
+
+.auth-card .auth-logo span{
+    color:#b6d8ff;
+    font-size:13px;
+}
+
+.auth-card h2{
+    font-size:24px;
+    text-align:center;
+    margin-bottom:6px;
+}
+
+.auth-card .auth-sub{
+    text-align:center;
+    color:#bfc9d8;
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.auth-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.auth-field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.auth-field label{
+    font-size:13px;
+    color:#b6d8ff;
+}
+
+.auth-field .auth-input-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.auth-field .auth-input-wrap i{
+    position:absolute;
+    left:14px;
+    color:#8ea3c7;
+    font-size:14px;
+}
+
+.auth-field input{
+    width:100%;
+    padding:13px 14px 13px 40px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+    color:white;
+    font-family:inherit;
+    font-size:15px;
+    outline:none;
+    transition:.25s;
+}
+
+.auth-field input:focus{
+    border-color:#3b82f6;
+    background:rgba(255,255,255,.08);
+}
+
+.auth-field .toggle-pass{
+    position:absolute;
+    right:14px;
+    background:none;
+    border:none;
+    color:#8ea3c7;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.auth-error{
+    background:rgba(239,68,68,.12);
+    border:1px solid rgba(239,68,68,.4);
+    color:#fca5a5;
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:14px;
+    display:none;
+    margin-bottom:18px;
+}
+
+.auth-error.activo{
+    display:block;
+}
+
+.auth-success{
+    background:rgba(34,197,94,.12);
+    border:1px solid rgba(34,197,94,.4);
+    color:#86efac;
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:14px;
+    display:none;
+    margin-bottom:18px;
+}
+
+.auth-success.activo{
+    display:block;
+}
+
+.auth-submit{
+    margin-top:6px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#3b82f6;
+    color:white;
+    font-family:inherit;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.auth-submit:hover{
+    background:#2563eb;
+    transform:translateY(-2px);
+}
+
+.auth-switch{
+    text-align:center;
+    margin-top:24px;
+    font-size:14px;
+    color:#bfc9d8;
+}
+
+.auth-switch a{
+    color:#4da6ff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.auth-switch a:hover{
+    text-decoration:underline;
+}
+
+.auth-back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:20px;
+    color:#bfc9d8;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.auth-back:hover{
+    color:white;
+}
+
+/* slot de usuario dentro del header (logo / nav / esto) */
+#authHeaderSlot{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.auth-saludo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    color:#e5edff;
+    white-space:nowrap;
+}
+
+.auth-login-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:white;
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:10px;
+    background:#3b82f6;
+    transition:.3s;
+    font-size:14px;
+    white-space:nowrap;
+}
+
+.auth-login-link:hover{
+    background:#2563eb;
+}
+
+.auth-logout-btn{
+    width:38px;
+    height:38px;
+    flex-shrink:0;
+    border-radius:50%;
+    border:none;
+    background:#1b2b47;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.auth-logout-btn:hover{
+    background:#ef4444;
+}
+
+@media (max-width:480px){
+    .auth-card{
+        padding:30px 22px;
+    }
+}
