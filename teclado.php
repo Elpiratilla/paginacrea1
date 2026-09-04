@@ -35,7 +35,7 @@ if (!isset($_SESSION["usuario_id"])) {
   <!-- HEADER: logo + menú de navegación, igual en todas las páginas del sitio -->
   <header>
     <div class="logo">
-      <img src="es/assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <img src="es/img/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
       <div>
         <h1>Sin Límites</h1>
       </div>

@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <a href="es/pages/inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
 
     <div class="auth-logo">
-      <img src="es/assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <img src="es/img/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
       <h1>Sin Límites</h1>
       <span>Aprendé y practicá Braille</span>
     </div>
