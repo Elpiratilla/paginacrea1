@@ -10,14 +10,14 @@
     --navy-800: #0d1d31;
     --navy-700: #16304f;
     --navy-600: #21456e;
-    --blue-400: #4FC3F7;
-    --blue-300: #9BE2FF;
-    --cream-100: #F5F1E8;
-    --slate-400: #93A5BD;
+    --blue-400: #2f8aff;
+    --blue-300: #7cb0ff;
+    --cream-100: #ffffff;
+    --slate-400: #b9c4d4;
 
-    --font-display: "Space Grotesk", sans-serif;
-    --font-body: "Literata", serif;
-    --font-mono: "JetBrains Mono", monospace;
+    --font-display: "Fraunces", serif;
+    --font-body: "Manrope", sans-serif;
+    --font-mono: "Manrope", sans-serif;
 }
 
 html {
@@ -62,7 +62,7 @@ main {
     font-weight: 700;
     line-height: 1.15;
     text-align: center;
-    text-shadow: 0 0 30px rgba(79, 195, 247, 0.25);
+    text-shadow: 0 0 30px rgba(47, 138, 255, 0.25);
 }
 
 .imagen {
@@ -84,7 +84,7 @@ main {
     border: 1px solid var(--navy-600);
     border-radius: 20px;
     box-shadow:
-        0 0 0 1px rgba(79, 195, 247, 0.08),
+        0 0 0 1px rgba(47, 138, 255, 0.08),
         0 25px 60px rgba(0, 0, 0, 0.45);
 }
 
@@ -208,7 +208,7 @@ main {
 .btn-vermas:hover {
     color: var(--blue-300);
     border-color: var(--blue-400);
-    background: rgba(79, 195, 247, 0.08);
+    background: rgba(47, 138, 255, 0.08);
     transform: translateY(-2px);
 }
 
@@ -253,7 +253,7 @@ main {
     border-radius: 20px;
     box-shadow:
         inset 0 0 40px rgba(0, 0, 0, 0.45),
-        0 0 40px -20px rgba(79, 195, 247, 0.25);
+        0 0 40px -20px rgba(47, 138, 255, 0.25);
 }
 
 .punto {
@@ -296,7 +296,7 @@ main {
         var(--blue-400) 75%
     );
     box-shadow:
-        0 0 18px rgba(79, 195, 247, 0.55),
+        0 0 18px rgba(47, 138, 255, 0.55),
         0 4px 0 rgba(0, 0, 0, 0.25);
     transform: translateY(-3px);
 }

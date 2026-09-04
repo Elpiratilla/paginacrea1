@@ -10,10 +10,6 @@
     --texto-tenue:#b9c4d4;
     --radio:18px;
     --sombra:0 10px 25px rgba(0,0,0,.4);
-
-    /* Tipografia (antes no estaban definidas y el sitio caia en la fuente por defecto) */
-    --fuente-display:'Fraunces', serif;
-    --fuente-cuerpo:'Manrope', sans-serif;
 }
 
 *{
@@ -150,6 +146,7 @@ p, a, span, button, li{
 /* -------- Cómo funciona -------- */
 .funciona{
     padding:70px 20px;
+    background-color:var(--tinta-profunda);
 }
 .pasos{
     display:flex;
@@ -218,6 +215,7 @@ p, a, span, button, li{
 
 .estadisticas{
     padding:60px 20px;
+    background-color:var(--tinta-profunda);
 }
 .contenedor-estadisticas{
     display:flex;
@@ -250,6 +248,7 @@ p, a, span, button, li{
 /* BENEFICIOS */
 .beneficios{
     padding:70px 50px;
+    background-color:var(--tinta-profunda);
 }
 .lista-beneficios{
     max-width:900px;
