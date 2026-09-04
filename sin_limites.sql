@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS sin_limites;
+USE sin_limites;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL,
+    correo VARCHAR(45) NOT NULL UNIQUE,
+    contraseña VARCHAR(255) NOT NULL,
+    verificado TINYINT(1) DEFAULT 0,
+    token_verification VARCHAR(64),
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS intentos_login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    correo VARCHAR(45),
+    ip VARCHAR(45),
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,40 +1,21 @@
 <?php
-session_start();
-require "conexion.php";
-
-// si ya hay sesión iniciada, saltar directo al teclado
-if (isset($_SESSION["usuario_id"])) {
-    header("Location: teclado.php");
-    exit;
-}
-
-$error = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $correo = trim($_POST["correo"] ?? "");
-    $password = $_POST["password"] ?? "";
-    $ip = $_SERVER["REMOTE_ADDR"] ?? "";
-
-    if ($correo === "" || $password === "") {
-        $error = "Ingresá tu correo y contraseña.";
-    } else {
-        $stmt = $pdo->prepare("SELECT id, nombre, contraseña FROM usuarios WHERE correo = ?");
-        $stmt->execute([$correo]);
-        $usuario = $stmt->fetch();
-
-        // registrar el intento (éxito o no)
-        $log = $pdo->prepare("INSERT INTO intentos_login (correo, ip) VALUES (?, ?)");
-        $log->execute([$correo, $ip]);
-
-        if (!$usuario || !password_verify($password, $usuario["contraseña"])) {
-            $error = "Correo o contraseña incorrectos.";
-        } else {
-            $_SESSION["usuario_id"] = $usuario["id"];
-            $_SESSION["usuario_nombre"] = $usuario["nombre"];
-            header("Location: teclado.php");
-            exit;
-        }
-    }
+// conexion.php
+// --- Datos de conexión ---
+$host = 'localhost';
+$db   = 'login2';
+$user = 'root';        // cámbialo si usas otro usuario
+$pass = 'root';             // cámbialo si tu MySQL tiene contraseña
+$charset = 'utf8mb4';
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$opciones = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+try {
+    $pdo = new PDO($dsn, $user, $pass, $opciones);
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
 ?>
 <!DOCTYPE html>
@@ -65,16 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h2>Iniciar sesión</h2>
     <p class="auth-sub">Ingresá con tu cuenta para acceder al teclado y comentar.</p>
 
-    <?php if ($error): ?>
-      <div class="auth-error activo"><?= htmlspecialchars($error) ?></div>
-    <?php endif; ?>
+    <div class="auth-error" id="loginError"></div>
 
-    <form class="auth-form" id="loginForm" method="POST" action="Login.php">
+    <form class="auth-form" id="loginForm">
       <div class="auth-field">
-        <label for="loginCorreo">Correo electrónico</label>
+        <label for="loginEmail">Correo electrónico</label>
         <div class="auth-input-wrap">
           <i class="fas fa-envelope"></i>
-          <input type="email" id="loginCorreo" name="correo" placeholder="tu@correo.com" required>
+          <input type="email" id="loginEmail" placeholder="tu@correo.com" required>
         </div>
       </div>
 
@@ -82,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="loginPassword">Contraseña</label>
         <div class="auth-input-wrap">
           <i class="fas fa-lock"></i>
-          <input type="password" id="loginPassword" name="password" placeholder="••••••••" required>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
           <button type="button" class="toggle-pass" data-target="loginPassword"><i class="fas fa-eye"></i></button>
         </div>
       </div>
@@ -90,11 +69,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <button type="submit" class="auth-submit">Ingresar</button>
     </form>
 
-    <p class="auth-switch">¿No tenés cuenta? <a href="registro.php">Registrate acá</a></p>
+    <p class="auth-switch">¿No tenés cuenta? <a href="registro.html">Registrate acá</a></p>
   </div>
 </div>
 
+<script src="auth.js"></script>
 <script>
+  // si ya hay sesión iniciada, no tiene sentido mostrar el login
+  if(usuarioActual()){
+    window.location.href = "teclado.html";
+  }
+
   document.querySelectorAll(".toggle-pass").forEach(function(btn){
     btn.addEventListener("click", function(){
       const input = document.getElementById(btn.dataset.target);
@@ -104,6 +89,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       icon.classList.toggle("fa-eye");
       icon.classList.toggle("fa-eye-slash");
     });
+  });
+
+  const loginForm = document.getElementById("loginForm");
+  const loginError = document.getElementById("loginError");
+
+  loginForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+    loginError.classList.remove("activo");
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const resultado = await iniciarSesion(email, password);
+
+    if(!resultado.ok){
+      loginError.textContent = resultado.error;
+      loginError.classList.add("activo");
+      return;
+    }
+
+    const destino = sessionStorage.getItem("sinlimites_redirect") || "teclado.html";
+    sessionStorage.removeItem("sinlimites_redirect");
+    window.location.href = destino;
   });
 </script>
 
