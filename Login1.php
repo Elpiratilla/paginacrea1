@@ -26,8 +26,8 @@ try {
 <title>Iniciar sesión — Sin Límites</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="headerfooter.css">
-<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="es/css/headerfooter.css">
+<link rel="stylesheet" href="es/css/auth.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -35,10 +35,10 @@ try {
 <div class="auth-page">
   <div class="auth-card">
 
-    <a href="Inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+    <a href="es/pages/inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
 
     <div class="auth-logo">
-      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <img src="es/assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
       <h1>Sin Límites</h1>
       <span>Aprendé y practicá Braille</span>
     </div>
@@ -69,11 +69,11 @@ try {
       <button type="submit" class="auth-submit">Ingresar</button>
     </form>
 
-    <p class="auth-switch">¿No tenés cuenta? <a href="registro.html">Registrate acá</a></p>
+    <p class="auth-switch">¿No tenés cuenta? <a href="es/pages/registro.html">Registrate acá</a></p>
   </div>
 </div>
 
-<script src="auth.js"></script>
+<script src="es/js/auth.js"></script>
 <script>
   // si ya hay sesión iniciada, no tiene sentido mostrar el login
   if(usuarioActual()){

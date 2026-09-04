@@ -20,10 +20,10 @@ if (!isset($_SESSION["usuario_id"])) {
 <title>Sin Límites</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="headerfooter.css">
-<link rel="stylesheet" href="newteclado.css">
-<link rel="stylesheet" href="auth.css">
-<link rel="stylesheet" href="comentarios.css">
+<link rel="stylesheet" href="es/css/headerfooter.css">
+<link rel="stylesheet" href="es/css/newteclado.css">
+<link rel="stylesheet" href="es/css/auth.css">
+<link rel="stylesheet" href="es/css/comentarios.css">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
@@ -35,7 +35,7 @@ if (!isset($_SESSION["usuario_id"])) {
   <!-- HEADER: logo + menu de navegacion, igual en todas las paginas del sitio -->
   <header>
     <div class="logo">
-      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <img src="es/assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
       <div>
         <h1>Sin Límites</h1>
       </div>
@@ -44,23 +44,23 @@ if (!isset($_SESSION["usuario_id"])) {
       <i class="fas fa-bars"></i>
     </button>
     <nav>
-      <a href="Inicio.html">
+      <a href="es/pages/inicio.html">
         <i class="fas fa-house"></i>
         Inicio
       </a>
-      <a href="descubrebraile.html">
+      <a href="es/pages/descubrebraile.html">
         <i class="fas fa-eye"></i>
         Descubre el Braille
       </a>
-      <a href="Mas info.html">
+      <a href="es/pages/mas-info.html">
         <i class="fas fa-book-open"></i>
         Historia
       </a>
-      <a href="proyecto.html">
+      <a href="es/pages/proyecto.html">
         <i class="fas fa-diagram-project"></i>
         Sobre nosotros
       </a>
-      <a href="contactos.html">
+      <a href="es/pages/contactos.html">
         <i class="fas fa-envelope"></i>
         Contacto
       </a>
@@ -152,11 +152,11 @@ if (!isset($_SESSION["usuario_id"])) {
         <div class="footer-links">
           <h4>Navegación</h4>
           <ul>
-            <li><a href="Inicio.html">Inicio</a></li>
-            <li><a href="descubrebraile.html">Descubre el Braille</a></li>
-            <li><a href="Mas info.html">Historia</a></li>
-            <li><a href="proyecto.html">Proyecto</a></li>
-            <li><a href="contactos.html">Contacto</a></li>
+            <li><a href="es/pages/inicio.html">Inicio</a></li>
+            <li><a href="es/pages/descubrebraile.html">Descubre el Braille</a></li>
+            <li><a href="es/pages/mas-info.html">Historia</a></li>
+            <li><a href="es/pages/proyecto.html">Proyecto</a></li>
+            <li><a href="es/pages/contactos.html">Contacto</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -186,12 +186,12 @@ if (!isset($_SESSION["usuario_id"])) {
 
   <!-- teclado.js arma el teclado y maneja toda la logica de escritura/voz/sonido.
 estrellas.js solo genera las estrellitas del fondo -->
-  <script src="teclado.js"></script>
-  <script src="estrellas.js"></script>
-  <script src="menu.js"></script>
+  <script src="es/js/teclado.js"></script>
+  <script src="es/js/estrellas.js"></script>
+  <script src="es/js/menu.js"></script>
 
   <!-- comentarios.js maneja la zona de comentarios (requiere sesión) -->
-  <script src="comentario.js"></script>
+  <script src="es/js/comentario.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       try{

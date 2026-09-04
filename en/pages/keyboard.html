@@ -6,16 +6,16 @@
 <title>No Limits</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="headerfooter.css">
-<link rel="stylesheet" href="newteclado.css">
-<link rel="stylesheet" href="auth.css">
-<link rel="stylesheet" href="comentarios.css">
+<link rel="stylesheet" href="../css/headerfooter.css">
+<link rel="stylesheet" href="../css/newteclado.css">
+<link rel="stylesheet" href="../css/auth.css">
+<link rel="stylesheet" href="../css/comentarios.css">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- auth.js goes in the head and runs immediately: if there's no
     active session, it redirects to login.html before the rest of
     the page gets a chance to render -->
-<script src="auth.js"></script>
+<script src="../js/auth.js"></script>
 <script>
   protegerPagina();
 </script>
@@ -28,7 +28,7 @@
   <!-- HEADER: logo + navigation menu, same on every page of the site -->
   <header>
     <div class="logo">
-      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <img src="../assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
       <div>
         <h1>No Limits</h1>
       </div>
@@ -37,28 +37,28 @@
       <i class="fas fa-bars"></i>
     </button>
     <nav>
-      <a href="home.html">
+      <a href="../pages/home.html">
         <i class="fas fa-house"></i>
         Home
       </a>
-      <a href="discover-braille.html">
+      <a href="../pages/discover-braille.html">
         <i class="fas fa-eye"></i>
         Discover Braille
       </a>
-      <a href="history.html">
+      <a href="../pages/history.html">
         <i class="fas fa-book-open"></i>
         History
       </a>
-      <a href="project.html">
+      <a href="../pages/project.html">
         <i class="fas fa-diagram-project"></i>
         About Us
       </a>
-      <a href="contact.html">
+      <a href="../pages/contact.html">
         <i class="fas fa-envelope"></i>
         Contact
       </a>
       <!-- class="activo" marks which page we're on (gives it the blue background) -->
-      <a href="keyboard.html" class="activo">
+      <a href="../pages/keyboard.html" class="activo">
         <i class="fas fa-keyboard"></i>
         Keyboard
       </a>
@@ -121,7 +121,7 @@
 
     <div class="comentarios-bloqueado" id="comentariosBloqueado" style="display:none;">
       <i class="fas fa-lock"></i>
-      <span>You need to <a href="login-2.html">log in</a> or <a href="register.html">create an account</a> to leave a comment.</span>
+      <span>You need to <a href="../pages/login-2.html">log in</a> or <a href="../pages/register.html">create an account</a> to leave a comment.</span>
     </div>
 
     <form class="form-comentario" id="formComentario" style="display:none;">
@@ -145,11 +145,11 @@
         <div class="footer-links">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="discover-braille.html">Discover Braille</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="project.html">Project</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="../pages/home.html">Home</a></li>
+            <li><a href="../pages/discover-braille.html">Discover Braille</a></li>
+            <li><a href="../pages/history.html">History</a></li>
+            <li><a href="../pages/project.html">Project</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -179,12 +179,12 @@
 
   <!-- teclado.js builds the keyboard and handles all the writing/voice/sound logic.
 estrellas.js just generates the background stars -->
-  <script src="teclado.js"></script>
-  <script src="estrellas.js"></script>
-  <script src="menu.js"></script>
+  <script src="../js/teclado.js"></script>
+  <script src="../js/estrellas.js"></script>
+  <script src="../js/menu.js"></script>
 
   <!-- comentario.js manages the comments section (requires a session) -->
-  <script src="comentario.js"></script>
+  <script src="../js/comentario.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       try{

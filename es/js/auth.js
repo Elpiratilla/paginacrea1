@@ -88,13 +88,13 @@ function usuarioActual(){
 }
 function cerrarSesion(){
     localStorage.removeItem(AUTH_SESSION_KEY);
-    window.location.href = "login.html";
+    window.location.href = "../pages/login.html";
 }
 function protegerPagina(){
     const usuario = usuarioActual();
     if(!usuario){
     sessionStorage.setItem("sinlimites_redirect", window.location.pathname.split("/").pop());
-    window.location.href = "login.html";
+    window.location.href = "../pages/login.html";
     }
     return usuario;
 }
@@ -110,6 +110,6 @@ function pintarUsuarioHeader(contenedorId){
         '<button class="auth-logout-btn" id="logoutBtn" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></button>';
     document.getElementById("logoutBtn").addEventListener("click", cerrarSesion);
     }else{
-    slot.innerHTML = '<a href="login.html" class="auth-login-link"><i class="fas fa-right-to-bracket"></i> Ingresar</a>';
+    slot.innerHTML = '<a href="../pages/login.html" class="auth-login-link"><i class="fas fa-right-to-bracket"></i> Ingresar</a>';
     }
 }

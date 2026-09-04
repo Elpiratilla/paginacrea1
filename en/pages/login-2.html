@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iniciar sesión — Sin Límites</title>
+<title>Log In — No Limits</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="headerfooter.css">
-<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="../css/headerfooter.css">
+<link rel="stylesheet" href="../css/auth.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,30 +15,30 @@
 <div class="auth-page">
   <div class="auth-card">
 
-    <a href="Inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+    <a href="../pages/home.html" class="auth-back"><i class="fas fa-arrow-left"></i> Back to home</a>
 
     <div class="auth-logo">
-      <img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
-      <h1>Sin Límites</h1>
-      <span>Aprendé y practicá Braille</span>
+      <img src="../assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
+      <h1>No Limits</h1>
+      <span>Learn and practice Braille</span>
     </div>
 
-    <h2>Iniciar sesión</h2>
-    <p class="auth-sub">Ingresá con tu cuenta para acceder al teclado y comentar.</p>
+    <h2>Log In</h2>
+    <p class="auth-sub">Sign in to your account to access the keyboard and comment.</p>
 
     <div class="auth-error" id="loginError"></div>
 
     <form class="auth-form" id="loginForm">
       <div class="auth-field">
-        <label for="loginEmail">Correo electrónico</label>
+        <label for="loginEmail">Email</label>
         <div class="auth-input-wrap">
           <i class="fas fa-envelope"></i>
-          <input type="email" id="loginEmail" placeholder="tu@correo.com" required>
+          <input type="email" id="loginEmail" placeholder="you@email.com" required>
         </div>
       </div>
 
       <div class="auth-field">
-        <label for="loginPassword">Contraseña</label>
+        <label for="loginPassword">Password</label>
         <div class="auth-input-wrap">
           <i class="fas fa-lock"></i>
           <input type="password" id="loginPassword" placeholder="••••••••" required>
@@ -46,18 +46,18 @@
         </div>
       </div>
 
-      <button type="submit" class="auth-submit">Ingresar</button>
+      <button type="submit" class="auth-submit">Log In</button>
     </form>
 
-    <p class="auth-switch">¿No tenés cuenta? <a href="registro.html">Registrate acá</a></p>
+    <p class="auth-switch">Don't have an account? <a href="../pages/register.html">Sign up here</a></p>
   </div>
 </div>
 
-<script src="auth.js"></script>
+<script src="../js/auth.js"></script>
 <script>
-  // si ya hay sesión iniciada, no tiene sentido mostrar el login
+  // if a session is already active, there's no point showing the login form
   if(usuarioActual()){
-    window.location.href = "teclado.html";
+    window.location.href = "../pages/keyboard.html";
   }
 
   document.querySelectorAll(".toggle-pass").forEach(function(btn){
@@ -89,7 +89,7 @@
       return;
     }
 
-    const destino = sessionStorage.getItem("sinlimites_redirect") || "teclado.html";
+    const destino = sessionStorage.getItem("sinlimites_redirect") || "../pages/keyboard.html";
     sessionStorage.removeItem("sinlimites_redirect");
     window.location.href = destino;
   });
