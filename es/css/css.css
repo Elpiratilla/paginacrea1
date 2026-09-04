@@ -41,7 +41,7 @@ html{
     text-align:justify;
 }
 
-/* mini estadisticas debajo del parrafo de intro, antes de los botones */
+/* mini estadísticas debajo del párrafo de intro, antes de los botones */
 .mini-stats{
     display:flex;
     gap:40px;

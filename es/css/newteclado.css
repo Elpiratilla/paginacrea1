@@ -5,7 +5,7 @@ ESTRELLAS DE FONDO (las genera estrellas.js, esto solo las estiliza)
   position: fixed;
   inset: 0;
   overflow: hidden;
-  pointer-events: none; /* para que no bloqueen los clicks de lo que esta encima */
+  pointer-events: none; /* para que no bloqueen los clics de lo que está encima */
   z-index: -1; /* siempre atras de todo */
 }
 
@@ -35,7 +35,7 @@ ESTRELLAS DE FONDO (las genera estrellas.js, esto solo las estiliza)
   }
 }
 
-/* esto no se usa en teclado.html (no hay .hero ahí), quedó de una version anterior */
+/* esto no se usa en teclado.html (no hay .hero ahí), quedó de una versión anterior */
 .hero {
   padding: 80px 10%;
   text-align: center;
@@ -64,12 +64,12 @@ ESTRELLAS DE FONDO (las genera estrellas.js, esto solo las estiliza)
 VARIABLES DE COLOR (tema del teclado)
 ====================================*/
 :root {
-  --bg-deep: #080a14;        /* fondo general de la pagina */
+  --bg-deep: #080a14;        /* fondo general de la página */
   --bg-panel-solid: #12162a; /* fondo de los paneles (stats, frase, controles) */
   --bg-key: #1a2036;         /* color base de las teclas */
   --bg-key-top: #232a46;     /* color de arriba de las teclas (efecto degradado) */
   --text-primary: #e9ebf7;
-  --text-dim: #8892b8;       /* texto secundario, mas apagado */
+  --text-dim: #8892b8;       /* texto secundario, más apagado */
   --accent: #7c6fff;         /* color principal (morado), se usa para resaltar */
   --accent-soft: rgba(124, 111, 255, .35);
   --glow: 0.7;                /* intensidad del brillo en el modo arcoiris/ola */
@@ -114,16 +114,16 @@ body {
   min-height: 100vh;
 }
 
-/* contenedor central de todo el contenido de la pagina (menos el header/footer) */
+/* contenedor central de todo el contenido de la página (menos el header/footer) */
 .wrap{
     width:90%;
     max-width:1200px;
     margin:0 auto;
-    padding-top: 28px; /* separacion respecto al header, que es sticky */
+    padding-top: 28px; /* separación respecto al header, que es sticky */
 }
 
 
-/* fila de estadisticas arriba del teclado (actualmente no se usa, el js
+/* fila de estadísticas arriba del teclado (actualmente no se usa, el js
    trae updateStats() vacia, pero se dejó el CSS por si se reactiva) */
 .stats {
   display: grid;
@@ -216,14 +216,14 @@ TECLADO
   position: relative;
 }
 
-/* el simbolo braille grande dentro de la tecla */
+/* el símbolo braille grande dentro de la tecla */
 .key .glyph {
   font-size: 19px;
   line-height: 1;
   letter-spacing: 0;
 }
 
-/* la letra/numero chiquito debajo del simbolo, oculto por defecto */
+/* la letra/número chiquito debajo del símbolo, oculto por defecto */
 .key .capt {
   display: none;
   font-size: 8px;
@@ -381,7 +381,7 @@ PANEL DE LA FRASE EN BRAILLE
   box-shadow: 0 4px 0 0 #1c6f8f;
 }
 
-/* los dos checkbox de abajo: leer cada letra / mostrar letra debajo del simbolo */
+/* los dos checkbox de abajo: leer cada letra / mostrar letra debajo del símbolo */
 .phrase-toggles {
   display: flex;
   gap: 20px;

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function actualizar() {
         if (activos.size === 0) {
             letraEl.textContent = '\u00A0';
-            textoEl.textContent = 'Toca los puntos para formar una combinación. Así es como el teclado reconoce cada letra.';
+            textoEl.textContent = 'Los puntos pueden tocarse para formar una combinación. Así es como el teclado reconoce cada letra.';
             return;
         }
         const clave = Array.from(activos).sort((a, b) => a - b).join(',');

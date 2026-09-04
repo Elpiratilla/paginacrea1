@@ -20,11 +20,11 @@
     <div class="auth-logo">
       <img src="../assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
       <h1>Sin Límites</h1>
-      <span>Aprendé y practicá Braille</span>
+      <span>Aprendizaje y práctica de Braille</span>
     </div>
 
     <h2>Crear cuenta</h2>
-    <p class="auth-sub">Registrate para usar el teclado y dejar comentarios.</p>
+    <p class="auth-sub">El usuario puede registrarse para usar el teclado y dejar comentarios.</p>
 
     <div class="auth-error" id="regError"></div>
     <div class="auth-success" id="regSuccess"></div>
@@ -34,7 +34,7 @@
         <label for="regNombre">Nombre</label>
         <div class="auth-input-wrap">
           <i class="fas fa-user"></i>
-          <input type="text" id="regNombre" placeholder="Tu nombre" required>
+          <input type="text" id="regNombre" placeholder="Nombre" required>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
         <label for="regPassword2">Confirmar contraseña</label>
         <div class="auth-input-wrap">
           <i class="fas fa-lock"></i>
-          <input type="password" id="regPassword2" placeholder="Repetí la contraseña" required>
+          <input type="password" id="regPassword2" placeholder="Repetir la contraseña" required>
           <button type="button" class="toggle-pass" data-target="regPassword2"><i class="fas fa-eye"></i></button>
         </div>
       </div>
@@ -67,7 +67,7 @@
       <button type="submit" class="auth-submit">Crear cuenta</button>
     </form>
 
-    <p class="auth-switch">¿Ya tenés cuenta? <a href="../pages/login.html">Iniciá sesión</a></p>
+    <p class="auth-switch">¿El usuario ya tiene cuenta? <a href="../pages/login.html">Iniciar sesión</a></p>
   </div>
 </div>
 
@@ -116,7 +116,7 @@
       return;
     }
 
-    regSuccess.textContent = "Cuenta creada. Ya podés iniciar sesión.";
+    regSuccess.textContent = "Cuenta creada. Ya es posible iniciar sesión.";
     regSuccess.classList.add("activo");
     regForm.reset();
 

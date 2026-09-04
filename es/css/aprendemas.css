@@ -217,7 +217,7 @@ CONTENIDO
 
 
 /*====================================
-DATOS / ESTADISTICAS
+DATOS / ESTADÍSTICAS
 ====================================*/
 
 .estadisticas{
@@ -552,7 +552,7 @@ CARDS: grid parejo + entrada animada escalonada
     width:auto;
 }
 
-/* cada card usa la misma animacion fade-in de tu JS (IntersectionObserver),
+/* cada card usa la misma animación fade-in de su JS (IntersectionObserver),
    pero con un pequeño delay creciente para que entren una por una */
 .card.fade-in{
     transition:opacity .6s ease, transform .6s ease;

@@ -139,7 +139,7 @@ function iniciarZonaComentarios(pagina){
         renderComentarios(pagina);
         }catch(err){
         console.error("No se pudo guardar el comentario:", err);
-        alert("Hubo un problema al guardar el comentario. Revisá la consola (F12) para más detalle.");
+        alert("Hubo un problema al guardar el comentario. La consola (F12) contiene más detalles.");
         }
     });
     }

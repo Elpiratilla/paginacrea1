@@ -32,7 +32,7 @@ if (!isset($_SESSION["usuario_id"])) {
   <!-- fondo de estrellitas animadas, estrellas.js las genera dentro de este div -->
   <div class="estrellas" id="estrellas"></div>
 
-  <!-- HEADER: logo + menu de navegacion, igual en todas las paginas del sitio -->
+  <!-- HEADER: logo + menú de navegación, igual en todas las páginas del sitio -->
   <header>
     <div class="logo">
       <img src="es/assets/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
@@ -64,7 +64,7 @@ if (!isset($_SESSION["usuario_id"])) {
         <i class="fas fa-envelope"></i>
         Contacto
       </a>
-      <!-- class="activo" marca en cual pagina estamos parados (le da el fondo azul) -->
+      <!-- class="activo" marca en cuál página estamos parados (le da el fondo azul) -->
       <a href="teclado.php" class="activo">
         <i class="fas fa-keyboard"></i>
         Teclado
@@ -75,7 +75,7 @@ if (!isset($_SESSION["usuario_id"])) {
   </header>
 
   <!-- TECLADO: teclado.js arma cada tecla dentro de #keyboard en tiempo real,
-       acá en el HTML solo va la caja vacía -->
+      acá en el HTML solo va la caja vacía -->
   <div class="wrap">
     <div class="stage">
       <div id="kbcontainer" class="mode-wave">
@@ -145,7 +145,7 @@ if (!isset($_SESSION["usuario_id"])) {
     <div class="lista-comentarios" id="listaComentarios"></div>
   </div>
 
-  <!-- FOOTER: igual en todas las paginas (Navegación / Recursos / Síguenos + copyright) -->
+  <!-- FOOTER: igual en todas las páginas (Navegación / Recursos / Síguenos + copyright) -->
   <footer class="footer">
     <div class="contenedor">
       <div class="footer-row">
@@ -184,7 +184,7 @@ if (!isset($_SESSION["usuario_id"])) {
     </div>
   </footer>
 
-  <!-- teclado.js arma el teclado y maneja toda la logica de escritura/voz/sonido.
+  <!-- teclado.js arma el teclado y maneja toda la lógica de escritura/voz/sonido.
 estrellas.js solo genera las estrellitas del fondo -->
   <script src="es/js/teclado.js"></script>
   <script src="es/js/estrellas.js"></script>
