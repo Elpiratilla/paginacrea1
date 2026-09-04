@@ -1,4 +1,3 @@
-// animaciones.js - efecto de aparicion suave al hacer scroll
 document.addEventListener("DOMContentLoaded", () => {
     const elementos = document.querySelectorAll(".reveal");
 
