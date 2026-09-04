@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- fondo de estrellitas animadas, ver estrellas.js -->
     <div class="estrellas" id="estrellas"></div>
-    <!--------
-    Header (mismo header que el resto del sitio, ver headerfooter.css)
-    ----------->
 <header class="header">
     <div class="logo">
         <a href="Inicio.html"><img src="Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites"></a>
@@ -32,10 +28,6 @@
     </nav>
 </header>
     <main>
-        
-        <!-- HERO: pieza central de la home. A la izquierda titulo + CTA,
-        a la derecha 4 celdas braille reales que se van iluminando y
-        deletrean "HOLA" en loop (ver .celda-braille en css.css) -->
         <section class="cabeza">
             <div class="hero-grid">
                 <div class="hero-copy">
@@ -58,11 +50,8 @@
                         </a>
                     </div>
                 </div>
-                
-                <!-- visual: cada celda representa una letra de "HOLA" en braille real -->
                 <div class="braille-hero-visual" aria-hidden="true">
                     <div class="celdas-fila">
-                        <!-- H: puntos 1,2,5 -->
                         <div class="celda-braille" style="--delay:0s">
                             <span class="punto lleno" style="--delay:0s"></span>
                             <span class="punto lleno" style="--delay:0s"></span>
@@ -71,7 +60,6 @@
                             <span class="punto lleno" style="--delay:0s"></span>
                             <span class="punto"></span>
                         </div>
-                        <!-- O: puntos 1,3,5 -->
                         <div class="celda-braille">
                             <span class="punto lleno" style="--delay:.35s"></span>
                             <span class="punto"></span>
@@ -80,7 +68,6 @@
                             <span class="punto lleno" style="--delay:.35s"></span>
                             <span class="punto"></span>
                         </div>
-                        <!-- L: puntos 1,2,3 -->
                         <div class="celda-braille">
                             <span class="punto lleno" style="--delay:.7s"></span>
                             <span class="punto lleno" style="--delay:.7s"></span>
@@ -89,7 +76,6 @@
                             <span class="punto"></span>
                             <span class="punto"></span>
                         </div>
-                        <!-- A: punto 1 -->
                         <div class="celda-braille">
                             <span class="punto lleno" style="--delay:1.05s"></span>
                             <span class="punto"></span>
@@ -109,9 +95,6 @@
             </div>
             
         </section>
-        
-        <!-- INTRO: parrafo de presentacion + imagen + mini-stats + los 2 botones principales
-        (Aprende Braille -> descubrebraile.html, Teclado Braille -> teclado.html) -->
         <section class="contenido">
             <div class="fila">
                 <div class="texto1">
@@ -146,8 +129,6 @@
             <div class="botones">
             </div>
         </section>
-
-        <!-- "¿QUÉ ES EL SISTEMA BRAILLE?": imagen + texto expandible (usa vermas.js) -->
         <section class="cabeza1">
             <div class="titulo">
                 <h2 class="titulo">
@@ -161,8 +142,6 @@
                     <img src="image 4.png" alt="Cómo funciona el Braille">
                 </div>
                 <div class="texto">
-                    <!-- vermas.js le agrega/saca la clase "expandido" a este div cuando
-                    se le da click al boton de abajo -->
                     <div class="contenido-expandible" id="texto-quees">
                         <p class="parrafo2">
                             El Braille es un sistema de lectura y escritura táctil
@@ -183,8 +162,6 @@
                             trabajar y comunicarse de forma independiente.
                         </p>
                     </div>
-                    <!-- data-target tiene que matchear el id del div de arriba, asi
-                    vermas.js sabe cual bloque expandir con este boton -->
                     <button class="btn-vermas" data-target="texto-quees">
                         <span class="texto-boton">Ver más</span>
                         <i class="fas fa-chevron-down"></i>
@@ -192,9 +169,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- LINEA DE TIEMPO: historia de Louis Braille, año por año.
-        se alternan .izquierda / .derecha para que quede en zigzag (ver css.css) -->
         <section class="timeline">
     <h2 class="titulo">
         Historia del Sistema Braille
@@ -274,8 +248,6 @@
         </div>
     </div>
 </section>
-
-        <!-- TESTIMONIO: seccion nueva, corta el ritmo entre la timeline y el CTA final -->
         <section class="testimonio">
             <i class="fas fa-quote-left"></i>
             <blockquote>
@@ -304,9 +276,6 @@
             </div>
         </section>
     </main>
-    <!--
-    Footer (igual en todas las paginas)
-    -->
     <footer class="footer">
         <div class="contenedor">
             <div class="footer-row">
@@ -323,7 +292,6 @@
                 <div class="footer-links">
                     <h4>Recursos</h4>
                     <ul>
-                        <!-- estos 4 links son placeholders (#), todavia no llevan a ningun lado -->
                         <li><a href="#">¿Qué es el Braille?</a></li>
                         <li><a href="#">Aprender Braille</a></li>
                         <li><a href="#">Alfabeto Braille</a></li>
@@ -345,8 +313,6 @@
             </div>
         </div>
     </footer>
-    <!-- vermas.js: boton "ver mas/ver menos" de textos largos
-    estrellas.js: genera las estrellitas del fondo -->
     <script src="vermas.js"></script>
     <script src="estrellas.js"></script>
     <script src="menu.js"></script>
