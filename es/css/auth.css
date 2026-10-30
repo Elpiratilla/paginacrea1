@@ -3,15 +3,12 @@
    ============================================ */
 
 .auth-page{
-    min-height:100vh;
+    min-height:100dvh;
     display:flex;
     align-items:center;
     justify-content:center;
     padding:40px 20px;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(59,130,246,.15), transparent 40%),
-        radial-gradient(circle at 85% 80%, rgba(59,130,246,.12), transparent 40%),
-        #192335;
+    background:transparent;
 }
 
 .auth-card{
@@ -19,9 +16,8 @@
     max-width:420px;
     background:rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.12);
-    border-radius:18px;
+    border-radius:var(--sl-radio);
     padding:40px 36px;
-    backdrop-filter:blur(10px);
 }
 
 .auth-card .auth-logo{
@@ -88,14 +84,14 @@
 .auth-field .auth-input-wrap i{
     position:absolute;
     left:14px;
-    color:#8ea3c7;
+    color:#cfd8e6;
     font-size:14px;
 }
 
 .auth-field input{
     width:100%;
     padding:13px 14px 13px 40px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     border:1px solid rgba(255,255,255,.15);
     background:rgba(255,255,255,.05);
     color:white;
@@ -106,7 +102,7 @@
 }
 
 .auth-field input:focus{
-    border-color:#3b82f6;
+    border-color:#93b8ff;
     background:rgba(255,255,255,.08);
 }
 
@@ -115,7 +111,7 @@
     right:14px;
     background:none;
     border:none;
-    color:#8ea3c7;
+    color:#cfd8e6;
     cursor:pointer;
     font-size:14px;
 }
@@ -125,7 +121,7 @@
     border:1px solid rgba(239,68,68,.4);
     color:#fca5a5;
     padding:10px 14px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     font-size:14px;
     display:none;
     margin-bottom:18px;
@@ -140,7 +136,7 @@
     border:1px solid rgba(34,197,94,.4);
     color:#86efac;
     padding:10px 14px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     font-size:14px;
     display:none;
     margin-bottom:18px;
@@ -154,8 +150,8 @@
     margin-top:6px;
     padding:14px;
     border:none;
-    border-radius:10px;
-    background:#3b82f6;
+    border-radius:var(--sl-radio);
+    background:#2563eb;
     color:white;
     font-family:inherit;
     font-size:16px;
@@ -177,7 +173,7 @@
 }
 
 .auth-switch a{
-    color:#4da6ff;
+    color:#93b8ff;
     text-decoration:none;
     font-weight:600;
 }
@@ -223,8 +219,8 @@
     color:white;
     text-decoration:none;
     padding:10px 16px;
-    border-radius:10px;
-    background:#3b82f6;
+    border-radius:var(--sl-radio);
+    background:#2563eb;
     transition:.3s;
     font-size:14px;
     white-space:nowrap;

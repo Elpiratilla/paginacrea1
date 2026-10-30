@@ -21,7 +21,6 @@ header{
     align-items:center;
     padding:15px 50px;
     background:rgba(24,35,133,.85);
-    backdrop-filter:blur(15px);
     border-bottom:1px solid rgba(255,255,255,.15);
     z-index:1000;
 }
@@ -73,7 +72,7 @@ header{
 }
 
 .footer-links ul li a:hover{
-    color:#4da6ff;
+    color:#93b8ff;
     padding-left:8px;
 }
 
@@ -97,7 +96,7 @@ header{
 }
 
 .social-link a:hover{
-    background:#3b82f6;
+    background:#2563eb;
     transform:translateY(-5px);
 }
 
@@ -146,12 +145,12 @@ nav a{
     color:white;
     text-decoration:none;
     padding:12px 18px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     transition:.3s;
 }
 nav a:hover,
 nav a.activo{
-    background:#3b82f6;
+    background:#2563eb;
     transform:translateY(-3px);
 }
 nav i{
@@ -207,10 +206,10 @@ BOTÓN VER MÁS
     gap:8px;
     margin-top:20px;
     padding:12px 26px;
-    background:#3b82f6;
+    background:#2563eb;
     color:white;
     border:none;
-    border-radius:12px;
+    border-radius:var(--sl-radio);
     font-family:inherit;
     font-size:16px;
     cursor:pointer;

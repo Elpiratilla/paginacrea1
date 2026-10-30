@@ -39,7 +39,6 @@ ESTRELLAS
     position:absolute;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 10px white;
     animation:caer linear infinite;
 }
 
@@ -60,7 +59,7 @@ ESTRELLAS
     }
 
     100%{
-        transform:translateY(100vh);
+        transform:translateY(100dvh);
         opacity:0;
     }
 }
@@ -90,7 +89,7 @@ HERO
     background:rgba(59,130,246,.15);
     color:#8ec4ff;
     padding:6px 16px;
-    border-radius:20px;
+    border-radius:var(--sl-radio);
     font-size:13px;
     font-weight:600;
     letter-spacing:.5px;
@@ -109,7 +108,7 @@ HERO
 .hero-texto p{
     font-size:19px;
     color:#e5e7eb;
-    text-align:justify;
+    text-align:left;
 }
 
 
@@ -120,8 +119,7 @@ HERO
 .hero-imagen img{
     width:400px;
     max-width:100%;
-    border-radius:25px;
-    box-shadow:0 20px 40px rgba(0,0,0,.4);
+    border-radius:var(--sl-radio);
 }
 
 
@@ -139,7 +137,7 @@ BOTONES
 
 .btn{
     padding:13px 25px;
-    border-radius:12px;
+    border-radius:var(--sl-radio);
     text-decoration:none;
     color:white;
     transition:.3s;
@@ -150,7 +148,7 @@ BOTONES
 
 
 .btn-principal{
-    background:#3b82f6;
+    background:#2563eb;
 }
 
 
@@ -198,7 +196,7 @@ CONTENIDO
 .texto p{
     font-size:18px;
     color:#f1f5f9;
-    text-align:justify;
+    text-align:left;
 }
 
 
@@ -211,8 +209,7 @@ CONTENIDO
 .imagen img{
     width:380px;
     max-width:100%;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    border-radius:var(--sl-radio);
 }
 
 
@@ -237,7 +234,7 @@ DATOS / ESTADÍSTICAS
 
 .estadistica i{
     font-size:30px;
-    color:#3b82f6;
+    color:#93b8ff;
     margin-bottom:14px;
     display:block;
 }
@@ -295,21 +292,19 @@ CARDS
     width:320px;
     padding:35px;
     text-align:center;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    border-radius:var(--sl-radio);
     transition:.3s;
 }
 
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 45px rgba(59,130,246,.3);
 }
 
 
 .card i{
     font-size:26px;
-    color:#3b82f6;
+    color:#93b8ff;
     margin-bottom:20px;
 }
 
@@ -336,7 +331,7 @@ CITA
 
 .cita i{
     font-size:28px;
-    color:#3b82f6;
+    color:#93b8ff;
     opacity:.6;
     margin-bottom:20px;
     display:block;
@@ -352,7 +347,7 @@ CITA
 }
 
 .cita cite{
-    color:#8ea3c7;
+    color:#cfd8e6;
     font-size:15px;
     font-style:normal;
 }
@@ -394,7 +389,7 @@ BENEFICIOS
     gap:20px;
     padding:20px;
     background:#192335;
-    border-radius:15px;
+    border-radius:var(--sl-radio);
     transition:.3s;
 }
 
@@ -404,7 +399,7 @@ BENEFICIOS
 
 
 .beneficio i{
-    color:#3b82f6;
+    color:#93b8ff;
     font-size:22px;
 }
 
@@ -422,7 +417,7 @@ CTA FINAL
 .cta-final{
     padding:90px 10%;
     text-align:center;
-    background:linear-gradient(135deg, rgba(59,130,246,.15), rgba(13,29,49,.95));
+    background:var(--sl-superficie);
     border-top:1px solid rgba(59,130,246,.2);
 }
 
@@ -588,11 +583,10 @@ HERO INSIGNIA: dato flotante sobre la imagen
     position:absolute;
     bottom:-1rem;
     right:-1rem;
-    background:#3b82f6;
+    background:#2563eb;
     color:#fff;
     padding:.9rem 1.2rem;
-    border-radius:14px;
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
+    border-radius:var(--sl-radio);
     display:flex;
     align-items:center;
     gap:.7rem;
@@ -638,16 +632,14 @@ PASOS: "Cómo empezar"
 
 .paso{
     background:#0d1d31;
-    border-radius:20px;
+    border-radius:var(--sl-radio);
     padding:35px;
     text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
     transition:.3s;
 }
 
 .paso:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 45px rgba(59,130,246,.3);
 }
 
 .paso-numero{
@@ -665,7 +657,7 @@ PASOS: "Cómo empezar"
 }
 
 .paso:hover .paso-numero{
-    background:#3b82f6;
+    background:#2563eb;
     color:#fff;
 }
 
@@ -700,7 +692,6 @@ CARDS: animacion de flip (se dan vuelta al pasar el mouse)
 
 .card{
     background:transparent;
-    box-shadow:none;
     padding:0;
     height:270px;
     perspective:1200px;
@@ -727,14 +718,13 @@ CARDS: animacion de flip (se dan vuelta al pasar el mouse)
     inset:0;
     backface-visibility:hidden;
     -webkit-backface-visibility:hidden;
-    border-radius:20px;
+    border-radius:var(--sl-radio);
     padding:35px;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
 .card-frente{
@@ -742,7 +732,7 @@ CARDS: animacion de flip (se dan vuelta al pasar el mouse)
 }
 
 .card-dorso{
-    background:#3b82f6;
+    background:#2563eb;
     transform:rotateY(180deg);
 }
 
@@ -772,7 +762,7 @@ TEXTO EXPANDIBLE ("Ver más" con vermas.js)
 .texto .contenido-expandible p{
     font-size:17px;
     color:#f1f5f9;
-    text-align:justify;
+    text-align:left;
 }
 
 .texto .contenido-expandible.expandido{
@@ -790,7 +780,7 @@ TEXTO EXPANDIBLE ("Ver más" con vermas.js)
     font-size:15px;
     font-weight:500;
     padding:11px 22px;
-    border-radius:12px;
+    border-radius:var(--sl-radio);
     cursor:pointer;
     display:inline-flex;
     align-items:center;
@@ -799,7 +789,7 @@ TEXTO EXPANDIBLE ("Ver más" con vermas.js)
 }
 
 .btn-vermas:hover{
-    background:#3b82f6;
+    background:#2563eb;
     transform:translateY(-4px);
 }
 

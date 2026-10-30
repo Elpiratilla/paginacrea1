@@ -10,53 +10,57 @@
     <link rel="stylesheet" href="../css/proyectocss.css">
     <link rel="stylesheet" href="../css/headerfooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../css/sistema.css">
 </head>
 <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="estrellas" id="estrellas"></div>
 <header class="header">
         <div class="logo">
             <a href="../pages/inicio.html">
-                <img src="../img/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites">
+                <img src="../img/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo Sin Límites" width="228" height="240">
             </a>
             <div class="logo-texto">
-                <h1>Sin Límites</h1>
+                <p class="nombre-sitio">Sin Límites</p>
             </div>
         </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-            <i class="fas fa-bars"></i>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <nav class="menu">
             <a href="../pages/inicio.html">
-                <i class="fas fa-house"></i>
+                <i class="fas fa-house" aria-hidden="true"></i>
                 Inicio
             </a>
             <a href="../pages/descubrebraile.html">
-                <i class="fas fa-eye"></i>
+                <i class="fas fa-eye" aria-hidden="true"></i>
                 Descubre el Braille
             </a>
             <a href="../pages/mas-info.html">
-                <i class="fas fa-book-open"></i>
+                <i class="fas fa-book-open" aria-hidden="true"></i>
                 Historia
             </a>
-            <a href="../pages/proyecto.html" class="activo">
-                <i class="fas fa-diagram-project"></i>
+            <a href="../pages/proyecto.html" class="activo" aria-current="page">
+                <i class="fas fa-diagram-project" aria-hidden="true"></i>
                 Sobre nosotros
             </a>
             <a href="../pages/contactos.html">
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-envelope" aria-hidden="true"></i>
                 Contacto
             </a>
-            <a href="../pages/login.html">
-                <i class="fas fa-keyboard"></i>
+            <a href="../../Login.php">
+                <i class="fas fa-keyboard" aria-hidden="true"></i>
                 Teclado
             </a>
         </nav>
     </header>
-<main>
+<main id="contenido">
     
 <section class="hero">
     <div class="hero-texto">
-        <span class="kicker"><span class="celda"><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i><i></i><i class="apagado"></i></span>Sin Límites</span>
         <h1>Proyecto Braille</h1>
         <p>
             Nuestro proyecto busca acercar la tecnología a las personas con
@@ -67,23 +71,22 @@
         </p>
         <div class="botones">
             <a href="#proyecto" class="btn btn-principal">
-                <i class="fas fa-arrow-down"></i>
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
                 Conocer proyecto
             </a>
             <a href="../pages/inicio.html" class="btn btn-secundario">
-                <i class="fas fa-house"></i>
+                <i class="fas fa-house" aria-hidden="true"></i>
                 Volver al inicio
             </a>
         </div>
     </div>
     <div class="hero-imagen">
-        <img src="../img/unnamed.png" alt="Proyecto Braille">
+        <img src="../img/unnamed.png" alt="Proyecto Braille" loading="lazy" decoding="async" width="500" height="281">
     </div>
 </section>
 <section class="contenido" id="proyecto">
     <div class="fila">
         <div class="texto">
-            <span class="kicker"><span class="celda"><i></i><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i></span>El proyecto</span>
             <h2>¿En qué consiste nuestro proyecto?</h2>
             <p>
                 El proyecto consiste en el desarrollo de un teclado físico
@@ -94,54 +97,35 @@
             </p>
         </div>
         <div class="imagen">
-            <img src="../img/image 10.png" alt="Teclado Braille">
+            <img src="../img/image 10.png" alt="Teclado Braille" loading="lazy" decoding="async" width="450" height="450">
         </div>
     </div>
 </section>
-<section class="cards-envoltorio">
-    <div class="cabeza">
-        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i class="apagado"></i><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i></span>Tres pilares</span>
-        <h2 class="titulo" style="font-size:36px;">Lo que sostiene el proyecto</h2>
-    </div>
-    <div class="cards">
-    <div class="card">
-        <i class="fas fa-bullseye"></i>
-        <h3>Objetivo</h3>
-        <p>
-            Desarrollar una herramienta accesible que permita a las personas
-            con discapacidad visual interactuar con computadoras y otros
-            dispositivos de una forma más cómoda e independiente.
-        </p>
-    </div>
-    <div class="card">
-        <i class="fas fa-keyboard"></i>
-        <h3>Teclado Braille</h3>
-        <p>
-            El teclado utiliza seis botones que representan los seis puntos
-            de la celda Braille. Cada combinación permite escribir letras,
-            números y símbolos de forma sencilla.
-        </p>
-    </div>
-    <div class="card">
-        <i class="fas fa-users"></i>
-        <h3>Inclusión</h3>
-        <p>
-            Nuestro proyecto busca eliminar barreras tecnológicas y promover
-            la igualdad de oportunidades mediante soluciones accesibles para
-            todos.
-        </p>
-    </div>
-    </div>
+<section class="pilares">
+    <h2 class="titulo">Lo que sostiene el proyecto</h2>
+    <dl class="pilares-lista">
+        <div>
+            <dt>Objetivo</dt>
+            <dd>Desarrollar una herramienta accesible que permita a las personas con discapacidad visual interactuar con computadoras y otros dispositivos de una forma más cómoda e independiente.</dd>
+        </div>
+        <div>
+            <dt>Teclado Braille</dt>
+            <dd>El teclado utiliza seis botones que representan los seis puntos de la celda Braille. Cada combinación permite escribir letras, números y símbolos de forma sencilla.</dd>
+        </div>
+        <div>
+            <dt>Inclusión</dt>
+            <dd>Nuestro proyecto busca eliminar barreras tecnológicas y promover la igualdad de oportunidades mediante soluciones accesibles para todos.</dd>
+        </div>
+    </dl>
 </section>
 <section class="funciona">
     <div class="cabeza">
-        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i class="apagado"></i><i class="apagado"></i><i></i><i class="apagado"></i><i></i></span>El recorrido de una letra</span>
         <h2 class="titulo">¿Cómo funciona?</h2>
     </div>
     <div class="pasos">
         <div class="paso">
             <div class="numero">1</div>
-            <i class="fas fa-hand-pointer"></i>
+            <i class="fas fa-hand-pointer" aria-hidden="true"></i>
             <h3>Presiona</h3>
             <p>
                 El usuario presiona una tecla del teclado, la cual tiene relieve Braille.
@@ -149,7 +133,7 @@
         </div>
         <div class="paso">
             <div class="numero">2</div>
-            <i class="fas fa-laptop"></i>
+            <i class="fas fa-laptop" aria-hidden="true"></i>
             <h3>Envía</h3>
             <p>
                 La información es enviada automáticamente a la computadora
@@ -158,7 +142,7 @@
         </div>
         <div class="paso">
             <div class="numero">3</div>
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
             <h3>Escribe</h3>
             <p>
                 El carácter aparece en pantalla, permitiendo una escritura
@@ -167,50 +151,13 @@
         </div>
     </div>
 </section>
-<section class="estadisticas">
-    <div class="cabeza">
-        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i></i><i class="apagado"></i><i class="apagado"></i><i></i><i class="apagado"></i></span>En números</span>
-        <h2 class="titulo">Nuestro impacto</h2>
-    </div>
-    <div class="contenedor-estadisticas">
-        <div class="estadistica">
-            <i class="fas fa-universal-access"></i>
-            <h3>100%</h3>
-            <p>
-                Enfoque en accesibilidad e inclusión tecnológica.
-            </p>
-        </div>
-        <div class="estadistica">
-            <i class="fas fa-braille"></i>
-            <h3>6</h3>
-            <p>
-                Puntos utilizados para formar caracteres Braille.
-            </p>
-        </div>
-        <div class="estadistica">
-            <i class="fas fa-laptop-code"></i>
-            <h3>24/7</h3>
-            <p>
-                Disponible para practicar escritura Braille.
-            </p>
-        </div>
-        <div class="estadistica">
-            <i class="fas fa-lightbulb"></i>
-            <h3>1</h3>
-            <p>
-                Solución creada para mejorar la independencia.
-            </p>
-        </div>
-    </div>
-</section>
 <section class="beneficios">
     <div class="cabeza">
-        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i class="apagado"></i><i></i><i></i><i class="apagado"></i><i class="apagado"></i></span>Por qué importa</span>
         <h2 class="titulo">Beneficios del proyecto</h2>
     </div>
     <div class="lista-beneficios">
         <div class="beneficio">
-            <i class="fas fa-eye"></i>
+            <i class="fas fa-eye" aria-hidden="true"></i>
             <div>
                 <h3>Mayor accesibilidad</h3>
                 <p>
@@ -220,7 +167,7 @@
             </div>
         </div>
         <div class="beneficio">
-            <i class="fas fa-graduation-cap"></i>
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
             <div>
                 <h3>Aprendizaje interactivo</h3>
                 <p>
@@ -230,7 +177,7 @@
             </div>
         </div>
         <div class="beneficio">
-            <i class="fas fa-network-wired"></i>
+            <i class="fas fa-network-wired" aria-hidden="true"></i>
             <div>
                 <h3>Integración tecnológica</h3>
                 <p>
@@ -240,7 +187,7 @@
             </div>
         </div>
         <div class="beneficio">
-            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart" aria-hidden="true"></i>
             <div>
                 <h3>Impacto social</h3>
                 <p>
@@ -253,14 +200,13 @@
 </section>
 <section class="faq">
     <div class="cabeza">
-        <span class="kicker" style="justify-content:center;"><span class="celda"><i></i><i></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i><i class="apagado"></i></span>Preguntas frecuentes</span>
         <h2 class="titulo" style="font-size:36px;">Antes de que preguntes</h2>
     </div>
     <div class="lista-faq">
         <div class="pregunta">
             <button class="pregunta-btn">
                 ¿Es necesario saber Braille para usar el teclado?
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
             <div class="pregunta-respuesta">
                 <p>No es obligatorio. El teclado y las guías del sitio están pensados para que cualquier persona aprenda la correspondencia entre combinaciones y letras mientras lo usa.</p>
@@ -269,7 +215,7 @@
         <div class="pregunta">
             <button class="pregunta-btn">
                 ¿Con qué dispositivos funciona?
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
             <div class="pregunta-respuesta">
                 <p>Se conecta como un teclado estándar, por lo que funciona con cualquier computadora o dispositivo que reconozca entrada por teclado.</p>
@@ -278,7 +224,7 @@
         <div class="pregunta">
             <button class="pregunta-btn">
                 ¿Es un proyecto educativo o un producto terminado?
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
             <div class="pregunta-respuesta">
                 <p>Es un proyecto en desarrollo, nacido en un contexto educativo, enfocado en demostrar que la accesibilidad puede construirse con herramientas sencillas y de bajo costo.</p>
@@ -287,7 +233,7 @@
         <div class="pregunta">
             <button class="pregunta-btn">
                 ¿Cómo se puede apoyar o saber más?
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
             <div class="pregunta-respuesta">
                 <p>Puedes escribirnos desde la sección de Contacto; nos interesa conocer instituciones, docentes o personas dispuestas a probar el proyecto.</p>
@@ -309,10 +255,6 @@
             <span class="destacada">"Sin límites" representa el compromiso de crear soluciones accesibles que reduzcan barreras y permitan que la tecnología esté al alcance de todos.</span>
         </p>
     </div>
-    <button class="btn-vermas" data-target="texto-conclusion">
-        <span class="texto-boton">Ver más</span>
-        <i class="fas fa-chevron-down"></i>
-    </button>
 </section>
 </main>
     <footer class="footer">
@@ -331,20 +273,11 @@
                 <div class="footer-links">
                     <h4>Recursos</h4>
                     <ul>
-                        <li><a href="#">¿Qué es el Braille?</a></li>
-                        <li><a href="#">Aprender Braille</a></li>
-                        <li><a href="#">Alfabeto Braille</a></li>
-                        <li><a href="#">Accesibilidad</a></li>
+                        <li><a href="../pages/descubrebraile.html">¿Qué es el Braille?</a></li>
+                        <li><a href="../pages/alfabeto.html">Alfabeto Braille</a></li>
+                        <li><a href="../pages/mas-info.html">Historia</a></li>
+                        <li><a href="../../Login.php">Teclado Braille</a></li>
                     </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Síguenos</h4>
-                    <div class="social-link">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-copy">
@@ -353,8 +286,9 @@
         </div>
     </footer>
 <script src="../js/estrellas.js"></script>
-<script src="../js/vermas.js"></script>
+
     <script src="../js/menu.js"></script>
     <script src="../js/faq.js"></script>
+    <script src="../js/movimiento.js"></script>
 </body>
 </html>

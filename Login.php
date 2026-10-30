@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "seguridad.php";
 require "conexion.php";
 
 // si ya hay sesión iniciada, saltar directo al teclado
@@ -8,6 +8,9 @@ if (isset($_SESSION["usuario_id"])) {
     exit;
 }
 
+const MAX_INTENTOS = 5;   // intentos fallidos permitidos por correo...
+const MINUTOS_ESPERA = 15; // ...en esta cantidad de minutos
+
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -15,24 +18,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"] ?? "";
     $ip = $_SERVER["REMOTE_ADDR"] ?? "";
 
-    if ($correo === "" || $password === "") {
+    if (!csrf_valido($_POST["csrf"] ?? null)) {
+        $error = "La página venció. Recargala e intentá de nuevo.";
+    } elseif ($correo === "" || $password === "") {
         $error = "Ingresá tu correo y contraseña.";
     } else {
-        $stmt = $pdo->prepare("SELECT id, nombre, contraseña FROM usuarios WHERE correo = ?");
-        $stmt->execute([$correo]);
-        $usuario = $stmt->fetch();
+        $cuenta = $pdo->prepare(
+            "SELECT COUNT(*) FROM intentos_login WHERE correo = ? AND fecha > NOW() - INTERVAL " . MINUTOS_ESPERA . " MINUTE"
+        );
+        $cuenta->execute([$correo]);
 
-        // registrar el intento (éxito o no)
-        $log = $pdo->prepare("INSERT INTO intentos_login (correo, ip) VALUES (?, ?)");
-        $log->execute([$correo, $ip]);
-
-        if (!$usuario || !password_verify($password, $usuario["contraseña"])) {
-            $error = "Correo o contraseña incorrectos.";
+        if ((int) $cuenta->fetchColumn() >= MAX_INTENTOS) {
+            $error = "Demasiados intentos. Esperá " . MINUTOS_ESPERA . " minutos y probá de nuevo.";
         } else {
-            $_SESSION["usuario_id"] = $usuario["id"];
-            $_SESSION["usuario_nombre"] = $usuario["nombre"];
-            header("Location: teclado.php");
-            exit;
+            $stmt = $pdo->prepare("SELECT id, nombre, contraseña FROM usuarios WHERE correo = ?");
+            $stmt->execute([$correo]);
+            $usuario = $stmt->fetch();
+
+            if (!$usuario || !password_verify($password, $usuario["contraseña"])) {
+                // solo se guardan los intentos fallidos, y se borran los de más de un día
+                $pdo->prepare("INSERT INTO intentos_login (correo, ip) VALUES (?, ?)")->execute([$correo, $ip]);
+                $pdo->exec("DELETE FROM intentos_login WHERE fecha < NOW() - INTERVAL 1 DAY");
+                $error = "Correo o contraseña incorrectos.";
+            } else {
+                $pdo->prepare("DELETE FROM intentos_login WHERE correo = ?")->execute([$correo]);
+                // sesión nueva al entrar: un identificador viejo no sirve para colarse
+                session_regenerate_id(true);
+                $_SESSION["usuario_id"] = $usuario["id"];
+                $_SESSION["usuario_nombre"] = $usuario["nombre"];
+                header("Location: teclado.php");
+                exit;
+            }
         }
     }
 }
@@ -47,14 +63,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="es/css/headerfooter.css">
 <link rel="stylesheet" href="es/css/auth.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="es/css/sistema.css">
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="estrellas" id="estrellas"></div>
 
-<div class="auth-page">
+<main id="contenido" class="auth-page">
   <div class="auth-card">
 
-    <a href="es/pages/inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+    <a href="es/pages/inicio.html" class="auth-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a>
 
     <div class="auth-logo">
       <img src="es/img/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
@@ -66,14 +85,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <p class="auth-sub">Ingresá con tu cuenta para acceder al teclado y comentar.</p>
 
     <?php if ($error): ?>
-      <div class="auth-error activo"><?= htmlspecialchars($error) ?></div>
+      <div class="auth-error activo"><?= e($error) ?></div>
     <?php endif; ?>
 
     <form class="auth-form" id="loginForm" method="POST" action="Login.php">
+      <input type="hidden" name="csrf" value="<?= e(token_csrf()) ?>">
       <div class="auth-field">
         <label for="loginCorreo">Correo electrónico</label>
         <div class="auth-input-wrap">
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-envelope" aria-hidden="true"></i>
           <input type="email" id="loginCorreo" name="correo" placeholder="tu@correo.com" required>
         </div>
       </div>
@@ -81,9 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="auth-field">
         <label for="loginPassword">Contraseña</label>
         <div class="auth-input-wrap">
-          <i class="fas fa-lock"></i>
+          <i class="fas fa-lock" aria-hidden="true"></i>
           <input type="password" id="loginPassword" name="password" placeholder="••••••••" required>
-          <button type="button" class="toggle-pass" data-target="loginPassword"><i class="fas fa-eye"></i></button>
+          <button type="button" class="toggle-pass" data-target="loginPassword" aria-label="Mostrar contraseña"><i class="fas fa-eye" aria-hidden="true"></i></button>
         </div>
       </div>
 
@@ -92,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <p class="auth-switch">¿No tenés cuenta? <a href="registro.php">Registrate acá</a></p>
   </div>
-</div>
+</main>
 
 <script>
   document.querySelectorAll(".toggle-pass").forEach(function(btn){
@@ -103,9 +123,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       input.type = esPassword ? "text" : "password";
       icon.classList.toggle("fa-eye");
       icon.classList.toggle("fa-eye-slash");
+      btn.setAttribute("aria-label", esPassword ? "Ocultar contraseña" : "Mostrar contraseña");
     });
   });
 </script>
 
+<script src="es/js/estrellas.js"></script>
+<script src="es/js/movimiento.js"></script>
 </body>
 </html>

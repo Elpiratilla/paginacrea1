@@ -38,7 +38,7 @@ html{
 .texto1{
     flex:1;
     line-height:1.8;
-    text-align:justify;
+    text-align:left;
 }
 
 /* mini estadísticas debajo del párrafo de intro, antes de los botones */
@@ -52,7 +52,6 @@ html{
     display:block;
     font-size:30px;
     color:#66d1ff;
-    text-shadow:0 0 18px rgba(102,209,255,.5);
 }
 
 .mini-stat span{
@@ -70,7 +69,7 @@ html{
 .imagen2 img{
     width:320px;
     max-width:100%;
-    border-radius:16px;
+    border-radius:var(--sl-radio);
 }
 .botones{
     display:flex;
@@ -82,7 +81,7 @@ html{
     background:white;
     color:#0d1d31;
     padding:12px 25px;
-    border-radius:8px;
+    border-radius:var(--sl-radio);
     text-decoration:none;
     transition:.3s;
     display:inline-flex;
@@ -92,7 +91,6 @@ html{
 }
 .btn:hover{
     transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(255,255,255,.15);
 }
 .btn-secundario{
     background:transparent;
@@ -126,7 +124,6 @@ html{
     position:absolute;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 10px white;
     animation:caer linear infinite;
 }
 @keyframes caer{
@@ -160,7 +157,7 @@ HERO PRINCIPAL — pieza central de la home
     transform:translateX(-50%);
     width:900px;
     height:900px;
-    background:radial-gradient(circle, rgba(59,130,246,.16), transparent 65%);
+    background:transparent;
     z-index:-1;
 }
 
@@ -191,7 +188,7 @@ HERO PRINCIPAL — pieza central de la home
     letter-spacing:.5px;
     text-transform:uppercase;
     padding:8px 16px;
-    border-radius:30px;
+    border-radius:var(--sl-radio);
     margin-bottom:22px;
 }
 
@@ -214,10 +211,7 @@ HERO PRINCIPAL — pieza central de la home
 
 /* palabra clave del titulo con degradado */
 .resaltado{
-    background:linear-gradient(90deg, #3b82f6, #66d1ff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    color:inherit;
 }
 
 .hero-copy .subtitulo{
@@ -257,8 +251,7 @@ HERO PRINCIPAL — pieza central de la home
     padding:35px 40px;
     background:rgba(13,29,49,.6);
     border:1px solid rgba(59,130,246,.25);
-    border-radius:24px;
-    box-shadow:0 25px 60px rgba(0,0,0,.4);
+    border-radius:var(--sl-radio);
 }
 
 .celda-braille{
@@ -277,29 +270,26 @@ HERO PRINCIPAL — pieza central de la home
 }
 
 .punto.lleno{
-    background:#3b82f6;
-    border-color:#3b82f6;
+    background:#2563eb;
+    border-color:#93b8ff;
     animation:brailleGlow 4s ease-in-out infinite;
     animation-delay:var(--delay, 0s);
 }
 
 @keyframes brailleGlow{
     0%,72%,100%{
-        box-shadow:0 0 0 rgba(59,130,246,0);
-        background:#3b82f6;
+        background:#2563eb;
     }
     12%{
-        box-shadow:0 0 16px 4px rgba(102,209,255,.85);
         background:#66d1ff;
     }
     28%{
-        box-shadow:0 0 6px rgba(59,130,246,.4);
-        background:#3b82f6;
+        background:#2563eb;
     }
 }
 
 .braille-caption{
-    color:#8ea3c7;
+    color:#cfd8e6;
     font-size:14px;
     letter-spacing:.5px;
 }
@@ -340,14 +330,13 @@ TESTIMONIO
     margin:80px auto;
     padding:60px 40px;
     background:rgba(13,29,49,.9);
-    border-radius:20px;
+    border-radius:var(--sl-radio);
     text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.3);
 }
 
 .testimonio i{
     font-size:32px;
-    color:#3b82f6;
+    color:#93b8ff;
     opacity:.6;
     margin-bottom:20px;
 }
@@ -363,7 +352,7 @@ TESTIMONIO
 .testimonio cite{
     display:block;
     font-style:normal;
-    color:#8ea3c7;
+    color:#cfd8e6;
     font-size:14px;
 }
 
@@ -374,9 +363,7 @@ CTA FINAL (banner del alfabeto) — con textura de puntos braille
 
 .alfa{
     position:relative;
-    background:
-        radial-gradient(circle, rgba(255,255,255,.14) 2px, transparent 2.5px) 0 0/34px 34px,
-        rgba(13,29,49,.9);
+    background:transparent;
     overflow:hidden;
 }
 
@@ -384,7 +371,7 @@ CTA FINAL (banner del alfabeto) — con textura de puntos braille
     content:"";
     position:absolute;
     inset:0;
-    background:radial-gradient(circle at 80% 50%, rgba(59,130,246,.25), transparent 60%);
+    background:transparent;
 }
 
 .alfa .fila{
@@ -473,7 +460,7 @@ CTA FINAL (banner del alfabeto) — con textura de puntos braille
     content:"";
     position:absolute;
     width:6px;
-    background:#3b82f6;
+    background:#2563eb;
     top:0;
     bottom:0;
     left:50%;
@@ -511,8 +498,7 @@ CTA FINAL (banner del alfabeto) — con textura de puntos braille
     background:white;
     color:#0d1d31;
     padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    border-radius:var(--sl-radio);
     transition:.3s;
 }
 .contenido-evento:hover{
@@ -567,9 +553,9 @@ CTA FINAL
 .cta-final{
     max-width:1000px;
     margin:20px auto 90px;
-    background:linear-gradient(135deg, rgba(59,130,246,.18), rgba(13,29,49,.9));
+    background:var(--sl-superficie);
     border:1px solid rgba(59,130,246,.35);
-    border-radius:25px;
+    border-radius:var(--sl-radio);
     padding:70px 60px;
     text-align:center;
 }
@@ -663,14 +649,10 @@ CTA FINAL
     max-height: 8.5em;
     overflow: hidden;
     position: relative;
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     transition: max-height .35s ease;
     }
 .texto .contenido-expandible.expandido{
     max-height: 60em;
-    -webkit-mask-image: none;
-    mask-image: none;
     }
     .texto .btn-vermas{
     position: static !important;

@@ -1,0 +1,588 @@
+/*====================================
+SISTEMA COMPARTIDO
+Se carga AL FINAL en todas las páginas: define colores, fuente,
+tamaños, foco y movimiento para que el sitio se vea como uno solo.
+Los !important solo están donde hay que ganarle a reglas viejas
+de cada hoja (fuentes, foco, alineación justificada).
+====================================*/
+:root{
+    --sl-fondo:#13203a;
+    --sl-superficie:#1b2c4b;
+    --sl-superficie-2:#0c1628;
+    --sl-tinta:#ffffff;
+    --sl-tinta-suave:#cfd8e6;
+    /* amarillo del logo: solo para la acción principal, el foco y los puntos */
+    --sl-acento:#fde68a;
+    --sl-sobre-acento:#13203a;
+    --sl-azul:#2563eb;
+    --sl-azul-texto:#93b8ff;
+    --sl-fuente:"Atkinson Hyperlegible", system-ui, sans-serif;
+    --sl-radio:16px;
+}
+
+/* ---------- fuente única ---------- */
+html body,
+html body *:not(i):not(.fa):not(.fas):not(.fab):not(.far):not([class*="fa-"]){
+    font-family:var(--sl-fuente) !important;
+}
+html body{
+    background:var(--sl-fondo);
+    color:var(--sl-tinta);
+    font-size:18px;
+    line-height:1.6;
+}
+html{
+    scroll-padding-top:110px;
+}
+
+/* ---------- escala de títulos ---------- */
+:is(main, section):not(.auth-page) h1{
+    font-size:clamp(2.5rem, 5.6vw, 5rem) !important;
+    line-height:1.02 !important;
+    letter-spacing:-0.02em;
+    font-weight:700 !important;
+    text-wrap:balance;
+}
+:is(main, section):not(.auth-page) h2{
+    font-size:clamp(1.9rem, 3.4vw, 3rem) !important;
+    line-height:1.08 !important;
+    letter-spacing:-0.015em;
+    font-weight:700 !important;
+    text-wrap:balance;
+}
+:is(main, section):not(.auth-page) h3{
+    font-size:1.375rem !important;
+    line-height:1.25;
+    font-weight:700 !important;
+}
+:is(main, section):not(.auth-page) h4{
+    font-size:1.125rem !important;
+    font-weight:700 !important;
+}
+:is(main, section) p,
+:is(main, section) li,
+:is(main, section) blockquote{
+    text-align:left !important;
+    line-height:1.6;
+}
+:is(main, section) p{
+    font-size:max(1.0625rem, 1em);
+}
+.hero p{
+    max-width:62ch;
+}
+
+/* ---------- encabezado ---------- */
+header{
+    background:var(--sl-superficie-2) !important;
+    border-bottom:0 !important;
+}
+.logo .nombre-sitio{
+    font-size:24px;
+    font-weight:700;
+    color:var(--sl-tinta);
+    margin:0;
+}
+nav a:hover,
+nav a.activo{
+    background:var(--sl-azul) !important;
+    transform:none !important;
+}
+nav a.activo{
+    background:var(--sl-tinta) !important;
+    color:var(--sl-sobre-acento) !important;
+}
+
+/* ---------- botones: forma de punto (redondos), uno principal ---------- */
+.btn,
+.auth-submit,
+.btn-proyecto,
+.form-comentario button{
+    border-radius:999px !important;
+    transform:none;
+}
+.auth-submit,
+.btn{
+    background:var(--sl-acento) !important;
+    color:var(--sl-sobre-acento) !important;
+    border:2px solid var(--sl-acento) !important;
+    font-weight:700;
+}
+.btn.btn-secundario{
+    background:transparent !important;
+    color:var(--sl-tinta) !important;
+    border-color:var(--sl-tinta) !important;
+}
+.btn:hover{
+    filter:brightness(1.08);
+}
+.btn:active{
+    transform:scale(.97);
+}
+
+/* ---------- foco visible y salto al contenido ---------- */
+:focus-visible{
+    outline:3px solid var(--sl-acento) !important;
+    outline-offset:3px !important;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
+    outline-offset:1px !important;
+}
+.saltar{
+    position:absolute;
+    left:16px;
+    top:-80px;
+    z-index:2000;
+    padding:12px 20px;
+    border-radius:999px;
+    background:var(--sl-acento);
+    color:var(--sl-sobre-acento);
+    font-weight:700;
+    text-decoration:none;
+}
+.saltar:focus{
+    top:16px;
+}
+.solo-lector{
+    position:absolute !important;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+}
+
+/* ---------- adornos que se quitan ---------- */
+.hero-tag,
+.eyebrow,
+.kicker,
+.scroll-cue,
+.cabeza::before{
+    display:none !important;
+}
+/* cielo de estrellas que caen: el mismo en todas las páginas.
+   estrellas.js las crea con duración y retraso al azar */
+.estrellas{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    overflow:hidden;
+}
+.estrella{
+    position:absolute;
+    top:-8px;
+    border-radius:50%;
+    background:#ffffff;
+    box-shadow:none !important;
+    opacity:.7;
+    animation-name:sl-caer !important;
+    animation-timing-function:linear !important;
+    animation-iteration-count:infinite !important;
+}
+@keyframes sl-caer{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(calc(100dvh + 16px)); }
+}
+.punto.lleno{
+    animation:none !important;
+}
+
+/* el texto completo siempre visible: nada escondido tras "Ver más" */
+.contenido-expandible{
+    max-height:none !important;
+    overflow:visible !important;
+}
+.btn-vermas{
+    display:none !important;
+}
+
+/* iconos encima de tarjetas: el título ya dice qué es */
+.card .icono-circulo,
+.card > i,
+.card-front .icono,
+.card-front > i,
+.paso > i{
+    display:none !important;
+}
+/* tarjetas que giraban al pasar el mouse: en teclado y celular el texto
+   nunca se veía. Ahora el título y el texto se leen siempre, uno sobre otro */
+.card-flip{
+    height:auto !important;
+    perspective:none !important;
+}
+.card-flip-inner{
+    transform:none !important;
+    display:flex;
+    flex-direction:column;
+    height:auto !important;
+}
+.card-front,
+.card-back{
+    position:static !important;
+    transform:none !important;
+    backface-visibility:visible !important;
+    -webkit-backface-visibility:visible !important;
+    border:0 !important;
+    background:var(--sl-superficie) !important;
+    color:var(--sl-tinta) !important;
+}
+.card-front{
+    border-radius:var(--sl-radio) var(--sl-radio) 0 0 !important;
+    padding:28px 28px 0 !important;
+    justify-content:flex-start !important;
+}
+.card-back{
+    border-radius:0 0 var(--sl-radio) var(--sl-radio) !important;
+    padding:12px 28px 28px !important;
+    align-items:flex-start !important;
+}
+.conclusion .destacada{
+    font-size:1.25rem !important;
+    line-height:1.45;
+}
+.conclusion p{
+    font-size:clamp(1.125rem, 1.6vw, 1.375rem) !important;
+}
+
+/* el ícono del ojo heredaba la posición de los íconos del campo y quedaba afuera */
+.auth-field .toggle-pass i{
+    position:static !important;
+    transform:none !important;
+}
+.auth-field .toggle-pass{
+    min-width:44px;
+    min-height:44px;
+    right:4px !important;
+}
+
+/* el orden de los pasos ya lo da su posición */
+.paso .numero{
+    display:none !important;
+}
+
+/* las imágenes llevan width/height en el HTML para reservar su lugar;
+   :where() no pesa, así que cualquier tamaño definido en otra hoja gana */
+:where(img){
+    max-width:100%;
+    height:auto;
+}
+
+/* proyecto: los tres pilares como lista, título a la izquierda */
+.pilares{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1.6fr);
+    gap:48px 80px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:140px 32px;
+}
+.pilares .titulo{
+    text-align:left !important;
+    margin:0;
+}
+.pilares-lista{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+    margin:0;
+}
+.pilares-lista dt{
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--sl-acento);
+    margin-bottom:8px;
+}
+.pilares-lista dd{
+    margin:0;
+    font-size:1.125rem;
+    line-height:1.6;
+    color:var(--sl-tinta);
+    max-width:56ch;
+}
+
+/* comentarios: el lector de pantalla lee el texto, no los símbolos ⠁⠃⠉.
+   A la vista el texto aparece solo con la casilla "Mostrar también el texto" */
+.lista-comentarios .comentario-texto-plano{
+    display:block !important;
+}
+.lista-comentarios:not(.con-texto-plano) .comentario-texto-plano{
+    position:absolute !important;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+}
+.aviso-comentario{
+    margin:8px 0 0;
+    color:#fca5a5;
+    font-weight:700;
+}
+.aviso-comentario:empty{
+    display:none;
+}
+.auth-logout-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:44px;
+    min-height:44px;
+    color:var(--sl-tinta);
+}
+
+/* ---------- pie ---------- */
+.footer-links ul li{
+    margin-bottom:2px !important;
+}
+.footer-links ul li a{
+    display:inline-block;
+    padding:10px 0;
+}
+.footer-copy{
+    border-top:0 !important;
+}
+.footer-links ul li a:hover{
+    padding-left:0 !important;
+    color:var(--sl-acento) !important;
+    text-decoration:underline;
+}
+
+/* ---------- inicio: tu nombre en Braille ---------- */
+.hero-nombre .hero-grid{
+    align-items:center;
+    gap:64px;
+}
+.hero-nombre .titulo1{
+    margin:0 0 24px !important;
+}
+.hero-nombre .subtitulo{
+    font-size:1.25rem !important;
+    color:var(--sl-tinta-suave) !important;
+    max-width:34ch !important;
+    margin:0 0 32px !important;
+}
+.nombre-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:0 0 32px;
+    max-width:420px;
+}
+.nombre-form label{
+    font-weight:700;
+    font-size:1.0625rem;
+}
+.nombre-form input{
+    width:100%;
+    padding:16px 22px;
+    border-radius:999px;
+    border:2px solid var(--sl-tinta-suave);
+    background:var(--sl-superficie-2);
+    color:var(--sl-tinta);
+    font-size:1.375rem;
+}
+.hero-nombre .braille-hero-visual{
+    flex:1;
+    align-items:stretch;
+    gap:0;
+}
+.hero-nombre .celdas-fila{
+    flex-wrap:wrap;
+    gap:28px 22px;
+    padding:48px;
+    min-height:340px;
+    align-content:center;
+    justify-content:center;
+    background:var(--sl-superficie);
+    border:0;
+    border-radius:var(--sl-radio);
+}
+.letra-braille{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+.hero-nombre .celda-braille{
+    gap:14px 16px;
+}
+.hero-nombre .celdas-fila{
+    gap:32px 30px;
+}
+.hero-nombre .hero-copy,
+.hero-nombre .hero-copy *{
+    text-align:left !important;
+}
+.hero-nombre .punto{
+    width:32px;
+    height:32px;
+    background:transparent;
+    border:2px solid rgba(255,255,255,.28);
+}
+.hero-nombre .punto.lleno{
+    background:var(--sl-acento);
+    border-color:var(--sl-acento);
+}
+.letra-braille b{
+    font-size:1.5rem;
+    line-height:1;
+}
+.letra-braille small{
+    font-size:.875rem;
+    color:var(--sl-tinta-suave);
+}
+.espacio-braille{
+    width:26px;
+}
+
+/* cita real de Louis Braille en lugar del testimonio inventado */
+.testimonio blockquote{
+    font-size:clamp(1.375rem, 2.2vw, 2rem) !important;
+    line-height:1.35 !important;
+    max-width:30ch;
+}
+
+@media (max-width:900px){
+    /* en proyectocss.css la regla del celular quedaba antes que la base y nunca se aplicaba */
+    .hero{
+        flex-direction:column !important;
+        align-items:stretch !important;
+        gap:40px;
+    }
+    .hero-imagen img{
+        width:100%;
+        max-width:none;
+    }
+    .pilares{
+        grid-template-columns:1fr;
+        padding:96px 20px;
+    }
+    .cabeza1 .titulo,
+    section > h2.titulo{
+        padding-inline:20px;
+    }
+    .hero-nombre .hero-grid{
+        gap:40px;
+    }
+    .hero-nombre .celdas-fila{
+        padding:28px 20px;
+        min-height:0;
+        justify-content:center;
+    }
+    .hero-nombre .punto{
+        width:18px;
+        height:18px;
+    }
+    .hero-nombre .celda-braille{
+        gap:8px 10px;
+    }
+    .nombre-form{
+        max-width:none;
+    }
+}
+
+/* ---------- transiciones ---------- */
+
+/* entre páginas: el encabezado se queda quieto y el contenido se funde
+   (navegadores con View Transitions; en los demás se cambia normal) */
+@view-transition{
+    navigation:auto;
+}
+header{
+    view-transition-name:encabezado;
+}
+::view-transition-old(root){
+    animation:sl-salir .22s ease-in both;
+}
+::view-transition-new(root){
+    animation:sl-entrar .38s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes sl-salir{
+    to{ opacity:0; transform:translateY(-8px); }
+}
+@keyframes sl-entrar{
+    from{ opacity:0; transform:translateY(14px); }
+}
+
+/* el título de cada página sube al cargar, y luego su primer párrafo */
+:is(main, section):not(.auth-page) h1{
+    animation:sl-subir .7s cubic-bezier(.2,.7,.2,1) both;
+}
+:is(main, section):not(.auth-page) h1 ~ p,
+.hero-nombre .nombre-form,
+.hero-nombre .hero-cta,
+.hero-nombre .braille-hero-visual{
+    animation:sl-subir .7s cubic-bezier(.2,.7,.2,1) .12s both;
+}
+.hero-nombre .nombre-form{ animation-delay:.2s; }
+.hero-nombre .hero-cta{ animation-delay:.28s; }
+.hero-nombre .braille-hero-visual{ animation-delay:.18s; }
+@keyframes sl-subir{
+    from{ opacity:0; transform:translateY(24px); }
+}
+
+/* entrada por sección: movimiento.js marca las piezas y las suelta
+   escalonadas al aparecer. Sin JavaScript todo se ve normal */
+.mov-espera{
+    opacity:0;
+    transform:translateY(28px);
+}
+.mov-listo{
+    opacity:1;
+    transform:none;
+    transition:
+        opacity .6s cubic-bezier(.2,.7,.2,1) var(--mov-retraso, 0s),
+        transform .6s cubic-bezier(.2,.7,.2,1) var(--mov-retraso, 0s);
+}
+
+/* cada letra nueva del nombre aparece como un punto que se levanta */
+.letra-braille{
+    animation:sl-aparecer .28s cubic-bezier(.3,1.4,.5,1) both;
+}
+@keyframes sl-aparecer{
+    from{ opacity:0; transform:scale(.7); }
+}
+
+/* respuesta de los controles */
+.btn,
+.auth-submit,
+.form-comentario button,
+nav a,
+.footer-links ul li a,
+.social-link a{
+    transition:background-color .2s, color .2s, filter .2s, transform .15s;
+}
+.btn:active,
+.auth-submit:active,
+.form-comentario button:active{
+    transform:scale(.97);
+}
+.nombre-form input{
+    transition:border-color .2s;
+}
+.nombre-form input:hover{
+    border-color:var(--sl-tinta);
+}
+
+/* ---------- movimiento reducido en TODAS las páginas ---------- */
+@media (prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+    .estrella,
+    ::view-transition-old(root),
+    ::view-transition-new(root){
+        animation:none !important;
+    }
+    .mov-espera{
+        opacity:1;
+        transform:none;
+    }
+}

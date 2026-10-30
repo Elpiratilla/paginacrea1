@@ -4,55 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Limits</title>
-    <link rel="stylesheet" href="../css/contactos.css">
-    <link rel="stylesheet" href="../css/headerfooter.css">
+    <link rel="stylesheet" href="../../es/css/contactos.css">
+    <link rel="stylesheet" href="../../es/css/headerfooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../../es/css/sistema.css">
 </head>
 <body>
+    <a class="saltar" href="#content">Skip to content</a>
 <div class="estrellas" id="estrellas"></div>
 <header class="header">
     <div class="logo">
         <a href="../pages/home.html">
-            <img src="../img/Logo Crea J Sin Limites amarillosinfondo.png" alt="No Limits Logo">
+            <img src="../../es/img/Logo Crea J Sin Limites amarillosinfondo.png" alt="No Limits Logo" width="228" height="240">
         </a>
         <div class="logo-texto">
-            <h1>No Limits</h1>
+            <p class="nombre-sitio">No Limits</p>
         </div>
     </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        <i class="fas fa-bars"></i>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
     </button>
     <nav class="menu">
         <a href="../pages/home.html">
-            <i class="fas fa-house"></i>
+            <i class="fas fa-house" aria-hidden="true"></i>
             Home
         </a>
         <a href="../pages/discover-braille.html">
-            <i class="fas fa-eye"></i>
+            <i class="fas fa-eye" aria-hidden="true"></i>
             Discover Braille
         </a>
         <a href="../pages/history.html">
-            <i class="fas fa-book-open"></i>
+            <i class="fas fa-book-open" aria-hidden="true"></i>
             History
         </a>
         <a href="../pages/project.html">
-            <i class="fas fa-diagram-project"></i>
+            <i class="fas fa-diagram-project" aria-hidden="true"></i>
             About Us
         </a>
-        <a href="../pages/contact.html" class="activo">
-            <i class="fas fa-envelope"></i>
+        <a href="../pages/contact.html" class="activo" aria-current="page">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
             Contact
         </a>
-        <a href="../pages/login-2.html">
-            <i class="fas fa-keyboard"></i>
+        <a href="../../Login.php">
+            <i class="fas fa-keyboard" aria-hidden="true"></i>
             Keyboard
         </a>
     </nav>
 </header>
-<main>
+<main id="content">
     <section class="cabeza">
         <h1 class="titulo">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-users" aria-hidden="true"></i>
         Contact
         </h1>
     </section>
@@ -60,19 +65,19 @@
     <section class="contenido2">
         <div class="fila">
             <div class="imagen">
-                <img src="../img/mateo.jpg" alt="Person's photo">
+                <img src="../../es/img/mateo.jpg" alt="Person's photo" loading="lazy" decoding="async" width="426" height="640">
             </div>
             <div class="datos">
                 <p>
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                     Mateo D'Alessandro Martinez Lara
                 </p>
                 <p>
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     Email: estudiante20160015@cdb.edu.sv
                 </p>
                 <p>
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     Phone: 7263 5254
                 </p>
             </div>
@@ -82,19 +87,19 @@
     <section class="contenido">
         <div class="fila">
             <div class="imagen">
-                <img src="../img/lili.jpg" alt="Person's photo">
+                <img src="../../es/img/lili.jpg" alt="Person's photo" loading="lazy" decoding="async" width="426" height="640">
             </div>
             <div class="datos">
                 <p>
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                     Liliana Abigail Rodriguez Gonzales
                 </p>
                 <p>
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     Email: estudiante20240061@cdb.edu.sv
                 </p>
                 <p>
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     Phone: 6154 1714
                 </p>
             </div>
@@ -104,19 +109,19 @@
     <section class="contenido2">
         <div class="fila">
             <div class="imagen">
-                <img src="../img/cris.jpg" alt="Person's photo">
+                <img src="../../es/img/cris.jpg" alt="Person's photo" loading="lazy" decoding="async" width="426" height="640">
             </div>
             <div class="datos">
                 <p>
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                     Cristopher Jose Flores Bonilla
                 </p>
                 <p>
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     Email: estudiante20240629@cdb.edu.sv
                 </p>
                 <p>
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     Phone: 7640 8903
                 </p>
             </div>
@@ -139,20 +144,11 @@
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">What is Braille?</a></li>
-                        <li><a href="#">Learn Braille</a></li>
-                        <li><a href="#">Braille Alphabet</a></li>
-                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="../pages/discover-braille.html">What is Braille?</a></li>
+                        <li><a href="../pages/alphabet.html">Braille Alphabet</a></li>
+                        <li><a href="../pages/history.html">History</a></li>
+                        <li><a href="../../teclado.php">Braille Keyboard</a></li>
                     </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Follow Us</h4>
-                    <div class="social-link">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-copy">
@@ -160,7 +156,8 @@
             </div>
         </div>
     </footer>
-<script src="../js/estrellas.js"></script>
-    <script src="../js/menu.js"></script>
+<script src="../../es/js/estrellas.js"></script>
+    <script src="../../es/js/menu.js"></script>
+    <script src="../../es/js/movimiento.js"></script>
 </body>
 </html>

@@ -66,7 +66,6 @@ p, a, span, button, li{
     margin:0;
     font-weight:700;
     text-align:center;
-    text-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 .separacion{
     height:40px;
@@ -98,12 +97,11 @@ p, a, span, button, li{
     position:absolute;
     inset:-14px;
     border:1.5px solid var(--azul-suave);
-    border-radius:22px;
+    border-radius:var(--sl-radio);
     pointer-events:none;
 }
 .fila img{
-    border-radius:16px;
-    box-shadow:var(--sombra);
+    border-radius:var(--sl-radio);
 }
 
 /* -------- Tarjetas: acento de esquina en celda braille -------- */
@@ -119,12 +117,11 @@ p, a, span, button, li{
     width:320px;
     padding:34px 30px 30px;
     text-align:center;
-    background:linear-gradient(180deg,var(--tinta-suave),var(--tinta));
+    background:var(--sl-superficie);
     color:white;
     border-radius:var(--radio);
     border:1px solid rgba(255,255,255,.06);
     transition:.4s cubic-bezier(.2,.8,.2,1);
-    box-shadow:var(--sombra);
 }
 
 .card:hover{
@@ -173,7 +170,7 @@ p, a, span, button, li{
 .numero{
     width:42px;
     height:42px;
-    background:linear-gradient(135deg,var(--azul),#182389);
+    background:var(--sl-superficie);
     color:var(--tinta-profunda);
     border-radius:50%;
     display:flex;
@@ -262,7 +259,7 @@ p, a, span, button, li{
     color:white;
     padding:26px;
     margin:18px 0;
-    border-radius:15px;
+    border-radius:var(--sl-radio);
     border:1px solid rgba(255,255,255,.05);
     transition:.3s;
 }
@@ -289,9 +286,8 @@ p, a, span, button, li{
     margin:40px auto 0;
     background:var(--tinta);
     border:1px solid rgba(255,255,255,.06);
-    border-radius:24px;
+    border-radius:var(--sl-radio);
     padding:40px 30px;
-    box-shadow:var(--sombra);
 }
 .demo-celda{
     display:grid;
@@ -316,7 +312,6 @@ p, a, span, button, li{
 .punto.activo{
     background:var(--azul);
     border-color:var(--azul);
-    box-shadow:0 0 22px rgba(47,138,255,.55);
 }
 .demo-resultado{
     display:flex;
@@ -343,7 +338,7 @@ p, a, span, button, li{
     border:1px solid rgba(255,255,255,.15);
     color:var(--texto-tenue);
     padding:10px 18px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     cursor:pointer;
     font-size:14px;
     margin-top:26px;
@@ -368,7 +363,7 @@ p, a, span, button, li{
 .pregunta{
     background:var(--tinta);
     border:1px solid rgba(255,255,255,.06);
-    border-radius:14px;
+    border-radius:var(--sl-radio);
     overflow:hidden;
 }
 .pregunta-btn{
@@ -437,7 +432,7 @@ p, a, span, button, li{
     border:1px solid rgba(255,255,255,.18);
     color:var(--texto-tenue);
     padding:11px 22px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     cursor:pointer;
     display:inline-flex;
     align-items:center;
@@ -482,7 +477,6 @@ p, a, span, button, li{
     position:absolute;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 10px white;
     opacity:.9;
     animation:caer linear infinite;
 }
@@ -499,7 +493,7 @@ p, a, span, button, li{
         opacity:1;
     }
     100%{
-        transform:translateY(calc(100vh + 200px));
+        transform:translateY(calc(100dvh + 200px));
         opacity:0;
     }
 }
@@ -572,7 +566,7 @@ p, a, span, button, li{
 
 .btn{
     padding:14px 26px;
-    border-radius:12px;
+    border-radius:var(--sl-radio);
     text-decoration:none;
     color:white;
     transition:.3s;
@@ -583,9 +577,8 @@ p, a, span, button, li{
 }
 
 .btn-principal{
-    background:linear-gradient(135deg,var(--azul),#182389);
+    background:var(--sl-superficie);
     color:#ffffff;
-    box-shadow:0 12px 26px rgba(47,138,255,.28);
 }
 
 .btn-secundario{
@@ -608,7 +601,7 @@ p, a, span, button, li{
     position:absolute;
     width:340px;
     height:340px;
-    background:radial-gradient(circle,var(--azul-suave),transparent 70%);
+    background:transparent;
     filter:blur(10px);
     z-index:0;
 }
@@ -616,8 +609,7 @@ p, a, span, button, li{
 .hero-imagen img{
     width:420px;
     max-width:100%;
-    border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,.45);
+    border-radius:var(--sl-radio);
     position:relative;
     z-index:1;
 }

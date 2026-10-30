@@ -1,1 +1,4 @@
 .DS_Store
+.taste-skill/
+config.local.php
+.config.example.php

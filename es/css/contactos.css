@@ -14,7 +14,6 @@
     position:absolute;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 10px white;
     animation:caer linear infinite;
 }
 @keyframes caer{
@@ -29,7 +28,7 @@
         opacity:1;
     }
     100%{
-        transform:translateY(100vh);
+        transform:translateY(100dvh);
         opacity:0;
     }
 }
@@ -41,13 +40,13 @@
     font-size:50px;
 }
 .titulo i{
-    color:#3b82f6;
+    color:#93b8ff;
 }
 .separacion{
     width:80%;
     height:2px;
     margin:auto;
-    background:#3b82f6;
+    background:#2563eb;
 }
 .contenido,
 .contenido2{
@@ -73,7 +72,6 @@
     object-fit:cover;
     border-radius:50%;
     border:4px solid #3b82f6;
-    box-shadow:0 15px 30px rgba(0,0,0,.4);
     transition:.3s;
 }
 .imagen img:hover{
@@ -82,9 +80,8 @@
 .datos{
     background:#0d1d31;
     padding:35px;
-    border-radius:20px;
+    border-radius:var(--sl-radio);
     width:450px;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 .datos p{
     font-size:18px;
@@ -92,7 +89,7 @@
     color:#f1f5f9;
 }
 .datos i{
-    color:#3b82f6;
+    color:#93b8ff;
     width:30px;
 }
 

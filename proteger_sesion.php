@@ -1,8 +1,7 @@
 <?php
 // proteger_sesion.php
-// Poné esto AL INICIO de teclado.php (y de cualquier página que
-// requiera estar logueado), antes de cualquier HTML.
-session_start();
+// Ponelo con require AL INICIO de cada página que requiera estar logueado.
+require_once __DIR__ . '/seguridad.php';
 
 if (!isset($_SESSION["usuario_id"])) {
     header("Location: Login.php");

@@ -1,4 +1,5 @@
 <?php
+require_once "seguridad.php";
 require "conexion.php";
 
 $error = "";
@@ -10,12 +11,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"] ?? "";
     $password2 = $_POST["password2"] ?? "";
 
-    if ($nombre === "" || $correo === "" || $password === "" || $password2 === "") {
+    if (!csrf_valido($_POST["csrf"] ?? null)) {
+        $error = "La página venció. Recargala e intentá de nuevo.";
+    } elseif ($nombre === "" || $correo === "" || $password === "" || $password2 === "") {
         $error = "Todos los campos son obligatorios.";
+    } elseif (mb_strlen($nombre) > 25) {
+        // los largos máximos son los de la tabla usuarios
+        $error = "El nombre puede tener hasta 25 caracteres.";
+    } elseif (strlen($correo) > 45) {
+        $error = "El correo puede tener hasta 45 caracteres.";
     } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         $error = "Correo electrónico no válido.";
     } elseif (strlen($password) < 6) {
         $error = "La contraseña debe tener al menos 6 caracteres.";
+    } elseif (strlen($password) > 72) {
+        // password_hash (bcrypt) ignora lo que pasa de 72 bytes
+        $error = "La contraseña puede tener hasta 72 caracteres.";
     } elseif ($password !== $password2) {
         $error = "Las contraseñas no coinciden.";
     } else {
@@ -51,14 +62,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="es/css/headerfooter.css">
 <link rel="stylesheet" href="es/css/auth.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="es/css/sistema.css">
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="estrellas" id="estrellas"></div>
 
-<div class="auth-page">
+<main id="contenido" class="auth-page">
   <div class="auth-card">
 
-    <a href="es/pages/inicio.html" class="auth-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+    <a href="es/pages/inicio.html" class="auth-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a>
 
     <div class="auth-logo">
       <img src="es/img/Logo Crea J Sin Limites amarillosinfondo.png" alt="Logo">
@@ -70,18 +84,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <p class="auth-sub">Registrate para usar el teclado y dejar comentarios.</p>
 
     <?php if ($error): ?>
-      <div class="auth-error activo"><?= htmlspecialchars($error) ?></div>
+      <div class="auth-error activo"><?= e($error) ?></div>
     <?php endif; ?>
 
     <?php if ($success): ?>
-      <div class="auth-success activo"><?= htmlspecialchars($success) ?></div>
+      <div class="auth-success activo"><?= e($success) ?></div>
     <?php endif; ?>
 
     <form class="auth-form" id="regForm" method="POST" action="registro.php">
+      <input type="hidden" name="csrf" value="<?= e(token_csrf()) ?>">
       <div class="auth-field">
         <label for="regNombre">Nombre</label>
         <div class="auth-input-wrap">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-user" aria-hidden="true"></i>
           <input type="text" id="regNombre" name="nombre" placeholder="Tu nombre" required maxlength="25">
         </div>
       </div>
@@ -89,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="auth-field">
         <label for="regCorreo">Correo electrónico</label>
         <div class="auth-input-wrap">
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-envelope" aria-hidden="true"></i>
           <input type="email" id="regCorreo" name="correo" placeholder="tu@correo.com" required maxlength="45">
         </div>
       </div>
@@ -97,18 +112,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="auth-field">
         <label for="regPassword">Contraseña</label>
         <div class="auth-input-wrap">
-          <i class="fas fa-lock"></i>
+          <i class="fas fa-lock" aria-hidden="true"></i>
           <input type="password" id="regPassword" name="password" placeholder="Mínimo 6 caracteres" required minlength="6">
-          <button type="button" class="toggle-pass" data-target="regPassword"><i class="fas fa-eye"></i></button>
+          <button type="button" class="toggle-pass" data-target="regPassword" aria-label="Mostrar contraseña"><i class="fas fa-eye" aria-hidden="true"></i></button>
         </div>
       </div>
 
       <div class="auth-field">
         <label for="regPassword2">Confirmar contraseña</label>
         <div class="auth-input-wrap">
-          <i class="fas fa-lock"></i>
+          <i class="fas fa-lock" aria-hidden="true"></i>
           <input type="password" id="regPassword2" name="password2" placeholder="Repetí la contraseña" required minlength="6">
-          <button type="button" class="toggle-pass" data-target="regPassword2"><i class="fas fa-eye"></i></button>
+          <button type="button" class="toggle-pass" data-target="regPassword2" aria-label="Mostrar contraseña"><i class="fas fa-eye" aria-hidden="true"></i></button>
         </div>
       </div>
 
@@ -117,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <p class="auth-switch">¿Ya tenés cuenta? <a href="Login.php">Iniciá sesión</a></p>
   </div>
-</div>
+</main>
 
 <script>
   document.querySelectorAll(".toggle-pass").forEach(function(btn){
@@ -128,6 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       input.type = esPassword ? "text" : "password";
       icon.classList.toggle("fa-eye");
       icon.classList.toggle("fa-eye-slash");
+      btn.setAttribute("aria-label", esPassword ? "Ocultar contraseña" : "Mostrar contraseña");
     });
   });
 
@@ -138,5 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <?php endif; ?>
 </script>
 
+<script src="es/js/estrellas.js"></script>
+<script src="es/js/movimiento.js"></script>
 </body>
 </html>

@@ -18,8 +18,8 @@
     content:"";
     width:80px;
     height:4px;
-    background:#3b82f6;
-    border-radius:10px;
+    background:#2563eb;
+    border-radius:var(--sl-radio);
     position:absolute;
     left:50%;
     bottom:-12px;
@@ -58,7 +58,7 @@
 .texto p,
 .texto1 p{
     font-size:17px;
-    text-align:justify;
+    text-align:left;
     line-height:1.9;
     color:#f2f2f2;
 }
@@ -77,9 +77,8 @@
 
     width:100%;
     max-width:360px;
-    border-radius:18px;
+    border-radius:var(--sl-radio);
     transition:.4s;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
 .imagen img:hover,
@@ -99,10 +98,9 @@
     background:#ffffff;
     color:#0d1d31;
     text-decoration:none;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     font-weight:600;
     transition:.35s;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
     display:inline-flex;
     align-items:center;
     gap:10px;
@@ -134,7 +132,7 @@
 }
 
 .lista li::marker{
-    color:#3b82f6;
+    color:#93b8ff;
 }
 
 .cards{
@@ -170,7 +168,7 @@
     inset:0;
     -webkit-backface-visibility:hidden;
     backface-visibility:hidden;
-    border-radius:18px;
+    border-radius:var(--sl-radio);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -182,7 +180,6 @@
 .card-front{
     background:#13233d;
     border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 .card-front .icono{
@@ -198,7 +195,7 @@
 
 .card-front i{
     font-size:32px;
-    color:#4da6ff;
+    color:#93b8ff;
 }
 
 .card-front h3{
@@ -210,7 +207,6 @@
     background:#4d7ef2;
     color:white;
     transform:rotateY(180deg);
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 .card-back p{
@@ -230,10 +226,9 @@
 .estadistica{
     background:#13233d;
     padding:35px;
-    border-radius:18px;
+    border-radius:var(--sl-radio);
     text-align:center;
     transition:.35s;
-    box-shadow:0 12px 25px rgba(0,0,0,.3);
 }
 
 .estadistica:hover{
@@ -242,7 +237,7 @@
 
 .estadistica i{
     font-size:48px;
-    color:#3b82f6;
+    color:#93b8ff;
     margin-bottom:20px;
 }
 
@@ -271,7 +266,6 @@
     position:absolute;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 10px white;
     opacity:.9;
     animation:caer linear infinite;
 }
@@ -292,7 +286,7 @@
     }
 
     100%{
-        transform:translateY(calc(100vh + 200px));
+        transform:translateY(calc(100dvh + 200px));
         opacity:0;
     }
 
@@ -308,14 +302,13 @@ TESTIMONIO
     margin:80px auto;
     padding:70px 40px;
     background:#13233d;
-    border-radius:20px;
+    border-radius:var(--sl-radio);
     text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.3);
 }
 
 .testimonio i{
     font-size:32px;
-    color:#3b82f6;
+    color:#93b8ff;
     opacity:.6;
     margin-bottom:20px;
 }
@@ -331,7 +324,7 @@ TESTIMONIO
 .testimonio cite{
     display:block;
     font-style:normal;
-    color:#8ea3c7;
+    color:#cfd8e6;
     font-size:14px;
 }
 
@@ -343,9 +336,9 @@ CTA FINAL
 .cta-final{
     max-width:1000px;
     margin:20px auto 90px;
-    background:linear-gradient(135deg, rgba(59,130,246,.18), rgba(13,29,49,.9));
+    background:var(--sl-superficie);
     border:1px solid rgba(59,130,246,.35);
-    border-radius:25px;
+    border-radius:var(--sl-radio);
     padding:70px 60px;
     text-align:center;
 }
@@ -467,7 +460,7 @@ CTA FINAL
     letter-spacing:.5px;
     text-transform:uppercase;
     padding:8px 16px;
-    border-radius:30px;
+    border-radius:var(--sl-radio);
     margin-bottom:22px;
 }
 
@@ -475,10 +468,6 @@ CTA FINAL
     font-size:58px;
     color:white;
     margin-bottom:20px;
-    background:linear-gradient(90deg,#ffffff,#a9c9ff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
 }
 
 .hero-texto p{
@@ -510,7 +499,7 @@ BOTON "VER MAS"
     border:2px solid #3b82f6;
     color:#7cb0ff;
     padding:10px 22px;
-    border-radius:10px;
+    border-radius:var(--sl-radio);
     cursor:pointer;
     display:inline-flex;
     align-items:center;
@@ -521,7 +510,7 @@ BOTON "VER MAS"
 }
 
 .btn-vermas:hover{
-    background:#3b82f6;
+    background:#2563eb;
     color:white;
     transform:translateY(-3px);
 }
